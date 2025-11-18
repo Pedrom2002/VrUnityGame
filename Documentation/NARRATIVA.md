@@ -67,44 +67,27 @@ Sargento Sarah Cross é a operadora de elite que estabeleceu os recordes atuais 
 
 ## 3. Ambientes
 
-### 3.1 Sala de Treino Tático (MVP - Implementado)
-**Estética:** Militar, funcional, profissional
+### 3.1 Campo de Tiro ao Ar Livre (MVP - Implementado)
+**Estética:** Base militar ao ar livre, ambiente aberto
 
 **Descrição:**
-A Sala de Treino Tático é o coração do Centro APEX. Com design militar minimalista, o espaço foi construído para simular condições reais de treino. Paredes cinza-concreto, marcações táticas no chão, e equipamento de última geração criam um ambiente que equilibra realismo com segurança.
+O Campo de Tiro da Base APEX é uma instalação ao ar livre, construída numa área aberta da base militar. O campo oferece um ambiente realista de treino, com céu aberto, terreno natural e estruturas militares ao redor. O espaço amplo permite treino em condições próximas às reais, preparando recrutas para operações em campo aberto.
 
 **Elementos Visuais:**
-- Piso: Concreto com marcações táticas
-- Paredes: Cinza militar com painéis de controle
-- Iluminação: Industrial, focada
-- Equipamento: Racks de armas, painéis de controle
-- UI: Display tático digital
+- Piso: Terra batida/concreto militar
+- Céu: Aberto (day/night cycles futuros)
+- Estruturas: Bunkers, torres de observação ao fundo
+- Iluminação: Natural durante o dia, holofotes para treino noturno
+- Marcações: Linhas de tiro, zonas de segurança pintadas no chão
+- Equipamento: Mesas táticas, racks de armas, painéis de controle
 
-**Atmosfera:** Profissional, militar, focada
+**Atmosfera:** Realista, militar, ao ar livre
 
 **Audio:**
-- Música: Industrial/tática de fundo
-- Efeitos: Ecos metálicos, ventilação industrial
+- Ambiente: Vento leve, sons distantes da base
+- Efeitos: Ecos naturais dos disparos
+- Background: Atividade militar ambiente (helicópteros distantes, veículos)
 
-### 3.2 Campo de Tiro Urbano (Futuro)
-**Estética:** Ambiente urbano simulado
-
-**Descrição:**
-Cenário de rua urbana com estruturas, janelas e cobertura. Alvos aparecem em múltiplas alturas e posições, simulando ameaças em ambiente urbano.
-
-### 3.3 Arena de Resposta Rápida (Futuro)
-**Estética:** High-tech, dinâmico
-
-**Descrição:**
-Arena com plataformas móveis e obstáculos dinâmicos. Projetada para treino de reação rápida e adaptabilidade.
-
-### 3.4 Câmara de Elite (Futuro)
-**Estética:** Premium, avançada
-
-**Descrição:**
-A arena final, reservada para operadores Platinum+. Equipada com a tecnologia mais avançada disponível na Base APEX.
-
----
 
 ## 4. Armas (Arsenal APEX)
 
@@ -432,11 +415,14 @@ O treino nunca acaba. Sempre há margem para melhorar.
 ## 12. Imersão & Detalhes
 
 ### 12.1 Environmental Storytelling
-**Sala de Treino Details:**
-- Marcas de uso no chão (área mais utilizada)
-- Equipamento militar autêntico
-- Placar com top performers
-- Terminal com dados de treino
+**Campo de Tiro Details:**
+- Marcas de uso no terreno (áreas mais utilizadas para treino)
+- Equipamento militar autêntico espalhado
+- Placar físico com top performers do mês
+- Terminal tático com dados de treino e briefings
+- Casquilhos de treino no chão (detalhes ambientais)
+- Bandeira da Base APEX tremulando ao vento
+- Estruturas militares ao fundo (torres, bunkers)
 
 ### 12.2 Feedback Loops
 **Positivo:**
