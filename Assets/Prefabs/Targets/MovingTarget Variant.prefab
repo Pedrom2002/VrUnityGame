@@ -1,0 +1,122 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &4026339600803582491
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2332027560683223346, guid: b904312304c899747ab17136237a8b2f, type: 3}
+      propertyPath: m_Name
+      value: MovingTarget Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 2332027560683223346, guid: b904312304c899747ab17136237a8b2f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3275731080746300982, guid: b904312304c899747ab17136237a8b2f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3275731080746300982, guid: b904312304c899747ab17136237a8b2f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3275731080746300982, guid: b904312304c899747ab17136237a8b2f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.02023
+      objectReference: {fileID: 0}
+    - target: {fileID: 3275731080746300982, guid: b904312304c899747ab17136237a8b2f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3275731080746300982, guid: b904312304c899747ab17136237a8b2f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3275731080746300982, guid: b904312304c899747ab17136237a8b2f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3275731080746300982, guid: b904312304c899747ab17136237a8b2f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3275731080746300982, guid: b904312304c899747ab17136237a8b2f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3275731080746300982, guid: b904312304c899747ab17136237a8b2f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3275731080746300982, guid: b904312304c899747ab17136237a8b2f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3331577728556281046, guid: b904312304c899747ab17136237a8b2f, type: 3}
+      propertyPath: hasLifetime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5363330474641528987, guid: b904312304c899747ab17136237a8b2f, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 9e9fc548b3f30e642bad99387556ada6, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2332027560683223346, guid: b904312304c899747ab17136237a8b2f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1872292636941093448}
+  m_SourcePrefab: {fileID: 100100000, guid: b904312304c899747ab17136237a8b2f, type: 3}
+--- !u!1 &1710638045378505513 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2332027560683223346, guid: b904312304c899747ab17136237a8b2f, type: 3}
+  m_PrefabInstance: {fileID: 4026339600803582491}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1872292636941093448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1710638045378505513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e5b5955996a28c418da50601be44492, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VRAimLab.Gameplay.MovingTarget
+  targetType: 0
+  basePoints: 100
+  hasLifetime: 1
+  lifetime: 10
+  hitsRequired: 1
+  useHitZones: 0
+  bullseyeZone: {fileID: 0}
+  innerZone: {fileID: 0}
+  bullseyeRadius: 0.1
+  innerRadius: 0.2
+  hitEffectPrefab: {fileID: 0}
+  destroyEffectPrefab: {fileID: 0}
+  normalColor: {r: 1, g: 0, b: 0, a: 1}
+  hitColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  playHitSound: 1
+  playSpawnSound: 0
+  movementPattern: 4
+  moveSpeed: 2
+  patternScale: 3
+  randomizePattern: 0
+  moveDirection: {x: 1, y: 0, z: 0}
+  circleCenter: {x: 0, y: 0, z: 0}
+  circleRadius: 2
+  clockwise: 1
+  zigzagAmplitude: 2
+  zigzagFrequency: 2
+  directionChangeInterval: 1
+  movementBounds: {x: 5, y: 3, z: 5}
+  minHeight: 0.5
+  enforceGroundLimit: 1
+  bouncePoints: []
