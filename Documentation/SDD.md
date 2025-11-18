@@ -94,15 +94,6 @@ Criar um ambiente de treino virtual que:
 - Music crossfade e fade in/out
 - PlayerPrefs para persistir configurações
 
-**Métodos Públicos:**
-```csharp
-PlayShootSound(Vector3 position)
-PlayHitSound(bool isPerfect)
-PlayComboSound()
-PlayMenuMusic()
-PlayGameplayMusic()
-```
-
 #### ScoreSystem.cs
 **Responsabilidades:**
 - Cálculo de pontuação com multiplicadores
@@ -146,7 +137,6 @@ PlayGameplayMusic()
 12. UIManager mostra GameOver com stats
 ```
 
----
 
 ## 3. Modos de Jogo Detalhados
 
@@ -237,7 +227,6 @@ Wave 4 (90-120s): interval=0.5s, maxTargets=7
 Wave 5 (120-180s): interval=0.4s, maxTargets=8
 ```
 
----
 
 ## 4. Sistema de Progressão
 
@@ -252,36 +241,8 @@ Wave 5 (120-180s): interval=0.4s, maxTargets=8
 | Platinum | 6000         | #E5E4E2   | 80%             |
 | Diamond  | 10000        | #B9F2FF   | 90%             |
 
-### 4.2 Streak System
-**Mecânica:**
-- Cada hit consecutivo aumenta streak
-- Miss ou target expired quebra streak
-- Milestones: 10, 20, 30, 50, 100 hits
-- Banner visual aparece em milestones
 
-**Bonuses:**
-```
-Streak 10+:  +50 pontos bonus
-Streak 20+:  +100 pontos bonus
-Streak 50+:  +500 pontos bonus
-Streak 100+: +1000 pontos bonus
-```
-
-### 4.3 Combo Multiplier
-**Mecânica:**
-- Hits rápidos (< 1 segundo entre hits) aumentam combo
-- Combo multiplica score do próximo hit
-- Máximo: x5
-
-**Tabela de Multiplicadores:**
-```
-2 hits rápidos:  x2 (Combo duplo)
-3 hits rápidos:  x3 (Combo triplo)
-4 hits rápidos:  x4 (Combo quádruplo)
-5+ hits rápidos: x5 (MEGA COMBO)
-```
-
-### 4.4 Achievements (Futuro)
+### 4.2 Achievements (Futuro)
 - **Primeiro Passo** - Completar Training Mode
 - **Recruta APEX** - Atingir Silver rank
 - **Olho de Águia** - 95% accuracy em Precision Mode
@@ -289,7 +250,6 @@ Streak 100+: +1000 pontos bonus
 - **Mestre do Tracking** - 90% accuracy em Tracking Mode
 - **Lenda APEX** - Atingir Diamond rank em Challenge Mode
 
----
 
 ## 5. Sistemas Técnicos
 
@@ -348,12 +308,6 @@ Combo      - Requer múltiplos hits
 5. **Figure8:** Padrão em forma de 8
 6. **Bounce:** Bounce entre pontos predefinidos
 
-**Configuração:**
-```csharp
-moveSpeed = 2f           // Velocidade de movimento
-patternScale = 3f        // Escala do padrão
-randomizePattern = false // Padrão aleatório ao spawn
-```
 
 ### 5.3 Spawn System
 
@@ -375,7 +329,6 @@ randomizePattern = false // Padrão aleatório ao spawn
 IncreaseDifficulty(level):
   - Diminui spawn interval
   - Aumenta max targets simultâneos
-  - Mantém performance em 90fps
 ```
 
 ### 5.4 UI System
@@ -430,36 +383,13 @@ Timer:
 4. **Batching:** Combina draw calls de materiais iguais
 5. **MaterialPropertyBlock:** Evita material instances
 
-### 6.2 Profiling Checklist
-- CPU: ≤10ms por frame (90fps = 11.1ms)
-- GPU: ≤10ms por frame
-- Draw Calls: ≤100
-- SetPass Calls: ≤50
-- Triangles: ≤100k total
-- Memory: ≤500MB
 
-### 6.3 Unity Optimization Settings
-```
-Quality Settings:
-  - Texture Quality: Medium
-  - Shadow Resolution: Low
-  - Anti-Aliasing: MSAA x2
-  - VSync: Off (VR runtime controla)
-
-Player Settings:
-  - Color Space: Linear
-  - Graphics API: Vulkan (Quest 2) / DX11 (PC)
-  - Stereo Rendering Mode: Multi-view
-  - Target Frame Rate: 90fps
-```
-
-### 6.4 XR Optimization
+### 6.2 XR Optimization
 - **Fixed Foveated Rendering:** Ativo no Quest 2
 - **Dynamic Resolution:** Ajusta resolução para manter 90fps
 - **Oculus Dash Compatibility:** Pause game quando dashboard aberto
 - **Hand Tracking:** Desativado (não usado, economiza performance)
 
----
 
 ## 7. Tech Stack
 
@@ -473,24 +403,17 @@ Player Settings:
 ### 7.2 Platform Support
 **Primary:**
 - Meta Quest 2 (Android, Snapdragon XR2)
-- Meta Quest 3 (futuro)
+
 
 **Secondary:**
 - PC VR (SteamVR)
 - Oculus Rift S
 - Valve Index
 
-### 7.3 Input System
-- **XR Interaction Toolkit:** Trigger para shoot, Grip para reload
-- **Legacy Input (fallback):** Desktop mode testing
-- **Input System Package:** Keyboard shortcuts (DebugHelper.cs)
-
 ### 7.4 Audio System
 - **Unity Audio Mixer:** Separação music/sfx/ui/voice
 - **Spatial Audio:** 3D sound com rolloff linear
-- **Audio Sources:** 4 separados (evita conflicts)
 
----
 
 ## 8. Requisitos do Sistema
 
@@ -498,7 +421,6 @@ Player Settings:
 - **Headset:** Meta Quest 2 (ou superior)
 - **Storage:** 500MB mínimo
 - **RAM:** 6GB (Quest 2 tem 6GB)
-- **Refresh Rate:** 72Hz, 90Hz, 120Hz (target 90Hz)
 
 ### 8.2 Hardware - PC VR
 - **CPU:** Intel i5-9600K ou AMD Ryzen 5 3600
@@ -573,95 +495,18 @@ Assets/
     └── UI/
 ```
 
----
 
-## 10. Código - Best Practices
+## 10. Known Limitations & Future Work
 
-### 10.1 C# Style Guide
-```csharp
-// ✅ BOM
-public class ExampleClass : MonoBehaviour
-{
-    #region Inspector Fields
-    [Header("Settings")]
-    [SerializeField] private float moveSpeed = 5f;
-    #endregion
-
-    #region Private Fields
-    private bool isActive = true;
-    #endregion
-
-    #region Unity Lifecycle
-    private void Awake() { }
-    private void Start() { }
-    private void Update() { }
-    #endregion
-
-    #region Public Methods
-    /// <summary>
-    /// Descrição do método
-    /// </summary>
-    public void DoSomething() { }
-    #endregion
-}
-```
-
-### 10.2 Performance Guidelines
-- **Avoid GetComponent in Update:** Cache referências
-- **Use Object Pooling:** Para objetos frequentemente criados/destruídos
-- **Minimize Garbage:** Reuse containers, avoid string concatenation
-- **Coroutines vs Update:** Use coroutines para timers
-- **Events vs SendMessage:** Use events/delegates
-
-### 10.3 VR Specific
-- **Fixed Update for Physics:** Rigidbody movement
-- **Haptics Responsivo:** Intensidade baseada em ação
-- **UI World Space:** Sempre, nunca Screen Space
-- **Comfort:** Evitar movimentos bruscos de câmera
-
----
-
-## 11. Testing Checklist
-
-### 11.1 Functional Tests
-- [ ] Todos os 5 modos iniciam corretamente
-- [ ] Weapon atira e registra hits
-- [ ] Targets spawnam e destroem corretamente
-- [ ] Score system calcula corretamente
-- [ ] Timer funciona em todos os modos
-- [ ] UI atualiza em tempo real
-- [ ] Audio toca nos eventos corretos
-- [ ] High scores salvam/carregam
-
-### 11.2 VR Tests
-- [ ] Grab weapon funciona (trigger + grip)
-- [ ] Haptic feedback funciona
-- [ ] Laser sight aponta corretamente
-- [ ] UI legível em VR (World Space)
-- [ ] Performance ≥90fps
-- [ ] Sem motion sickness
-- [ ] Conforto após 15min
-
-### 11.3 Performance Tests
-- [ ] FPS ≥90 em Quest 2
-- [ ] Memory usage ≤500MB
-- [ ] Draw calls ≤100
-- [ ] No GC spikes durante gameplay
-- [ ] Load time ≤5 segundos
-
----
-
-## 12. Known Limitations & Future Work
-
-### 12.1 Limitações Atuais
-- Apenas 1 arma disponível (pistola)
+### 10.1 Limitações Atuais
+- Apenas 1 arma disponível
 - Sem multiplayer
 - Sem sistema de achievements persistente
 - Sem leaderboards online
-- Ambientes limitados (1 training hall)
+- Ambiente limitado 
 
-### 12.2 Future Features (Post-MVP)
-- **Armas Adicionais:** Rifle de precisão, SMG rápida
+### 10.2 Future Features 
+- **Armas Adicionais:** SMG rápida,Pistol
 - **Ambientes:** Cyber Range, Kinetic Arena, Apex Nexus
 - **Multiplayer:** Co-op e competitivo
 - **Achievements System:** Com unlock de skins
@@ -670,36 +515,8 @@ public class ExampleClass : MonoBehaviour
 - **Voice AI (ARIA):** Tutora virtual com voice lines
 - **Analytics:** Tracking de progressão detalhada
 
----
 
-## 13. Troubleshooting
-
-### 13.1 Common Issues
-
-**Issue:** Weapon não atira
-**Fix:** Verificar se shootPoint está assignado no Inspector
-
-**Issue:** Targets não spawnam
-**Fix:** Verificar ObjectPooler configurado com pools "BasicTarget", "MovingTarget", "PrecisionTarget"
-
-**Issue:** UI não aparece em VR
-**Fix:** Canvas deve estar em World Space, não Screen Space
-
-**Issue:** Performance baixo (<90fps)
-**Fix:** Ativar Fixed Foveated Rendering, reduzir max active targets
-
-**Issue:** Audio não toca
-**Fix:** Verificar AudioManager existe na cena, audio clips assignados
-
-### 13.2 Debug Tools
-- **DebugHelper.cs:** Keyboard shortcuts (T, Y, U para spawn, P para stats)
-- **QuickStartSetup.cs:** Verifica setup VR, managers presentes
-- **Unity Profiler:** CPU/GPU/Memory monitoring
-- **XR Plugin Management:** Verifica XR providers ativos
-
----
-
-## 14. Conclusão
+## 11. Conclusão
 
 O **APEX Training System** representa um simulador VR de treino de mira completo e polished, projetado para proporcionar uma experiência de alta qualidade tanto em standalone VR (Quest 2) quanto em PC VR.
 
@@ -713,16 +530,8 @@ O **APEX Training System** representa um simulador VR de treino de mira completo
 ✅ Object pooling para targets
 ✅ Desktop mode para testing sem VR
 
-**MVP Completo:** Ready for deployment e testing em Quest 2.
-
-**Next Steps:**
-1. Build e deploy em Quest 2
-2. User testing e feedback
-3. Iteração baseada em dados
-4. Expansão com features pós-MVP
 
 ---
 
-**Desenvolvido por:** [Your Name]
-**Deadline:** 19 Novembro 2025
-**Status:** ✅ Completo
+**Desenvolvido por:** [Pedro Marques & Lourenco Couto]
+
