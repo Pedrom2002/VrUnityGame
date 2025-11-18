@@ -115,27 +115,29 @@ A Pistola Tática Standard é a arma de treino padrão para todos os recrutas AP
 - Reload: Troca de carregador metálica
 - Empty: Click de câmara vazia
 
-### 4.2 Rifle de Precisão (Futuro)
-**Classificação:** Arma de Precisão Avançada
+### 4.2 AK-74M
+**Classificação:** Rifle de Assalto
 
 **Especificações:**
-- **Munição:** 20 rounds
-- **Fire Rate:** Semi-automática, 150 RPM
-- **Precisão:** Extrema (com scope)
-- **Modelo:** APEX-R5 Marksman
+- **Munição:** 30 rounds (5.45x39mm)
+- **Fire Rate:** Automática/Semi-automática, 650 RPM
+- **Precisão:** Média-Alta
+- **Recuo:** Médio
+- **Modelo:** AK-74M
 
-**Função:** Desbloqueia em Precision Mode ao atingir Gold Rank
+**Descrição:**
+O AK-74M é um rifle de assalto moderno utilizado para treino avançado. Com seletor de modo de fogo (semi/automático), permite aos recrutas aprenderem controle de rajada e gestão de recuo. Arma robusta e confiável, ideal para treino em múltiplos cenários.
 
-### 4.3 SMG Tática (Futuro)
-**Classificação:** Arma de Resposta Rápida
+**Visual:**
+- Cor: Preto militar
+- Mira iron sight + rail para acessórios
+- Stock dobrável
+- Grip frontal
 
-**Especificações:**
-- **Munição:** 40 rounds
-- **Fire Rate:** Automática, 800 RPM
-- **Precisão:** Média
-- **Modelo:** APEX-S4 Rapid
-
-**Função:** Desbloqueia em Speed Mode ao atingir Gold Rank
+**Audio:**
+- Disparo: Som característico de AK
+- Reload: Troca de carregador metálica
+- Mode Switch: Click do seletor
 
 ---
 
@@ -393,28 +395,9 @@ O treino nunca acaba. Sempre há margem para melhorar.
 
 ---
 
-## 11. Expansão Futura
+## 11. Imersão & Detalhes
 
-### 11.1 Story Expansion
-**ARIA's Origin:** Quem desenvolveu o sistema? História da General Volkov?
-
-**Sargento Cross:** Qual sua história? Missões que completou?
-
-**Other Recrutas:** Sistema de co-op? Competição entre recrutas?
-
-**A Base:** Mais sobre a instalação APEX, sua missão
-
-### 11.2 Gameplay Expansion
-**Campaign Mode:** Missões narrativas com objetivos táticos
-**Boss Challenges:** Simulação de combate contra elite
-**Customization:** Skins de armas, patches, emblemas
-**Achievements Lore:** Cada achievement desbloqueia lore
-
----
-
-## 12. Imersão & Detalhes
-
-### 12.1 Environmental Storytelling
+### 11.1 Environmental Storytelling
 **Campo de Tiro Details:**
 - Marcas de uso no terreno (áreas mais utilizadas para treino)
 - Equipamento militar autêntico espalhado
@@ -424,7 +407,7 @@ O treino nunca acaba. Sempre há margem para melhorar.
 - Bandeira da Base APEX tremulando ao vento
 - Estruturas militares ao fundo (torres, bunkers)
 
-### 12.2 Feedback Loops
+### 11.2 Feedback Loops
 **Positivo:**
 - ARIA celebra conquistas
 - Visual effects satisfatórios
@@ -435,7 +418,7 @@ O treino nunca acaba. Sempre há margem para melhorar.
 - Feedback visual de erro (sutil)
 - Áudio de apoio motivador
 
-### 12.3 Player Agency
+### 11.3 Player Agency
 - Escolha de modo de jogo
 - Controle de dificuldade
 - Configurações de arma (laser sight)
