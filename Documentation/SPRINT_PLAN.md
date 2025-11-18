@@ -1,8 +1,8 @@
-# SPRINT PLAN - VR Aim Lab APEX
-## Cronograma de 6 Dias para MVP
+# SPRINT PLAN - APEX Training System
+## Cronograma de 6 Dias para MVP - Base Militar APEX
 
 **Deadline:** 19 Novembro 2025
-**Objetivo:** Protótipo jogável com 5 modos de jogo funcionais
+**Objetivo:** Simulador de treino tático com 5 modos de jogo funcionais
 **Target Performance:** 90fps em Meta Quest 2
 
 ---

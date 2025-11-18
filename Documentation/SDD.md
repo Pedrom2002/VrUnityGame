@@ -1,7 +1,7 @@
 # Software Design Document (SDD)
 ## VR Aim Lab - APEX Training System
 
-**Version:** 1.0.0
+**Version:** 2.0.0
 **Date:** November 2025
 **Platform:** Unity 2021.3 LTS
 **Target:** Meta Quest 2, PC VR (SteamVR, Oculus Rift)
@@ -11,7 +11,7 @@
 ## 1. Visão Geral
 
 ### 1.1 Conceito
-O **APEX Training System** é um simulador VR de treino de mira desenvolvido para a Academia de Precisão Neural (2045). O sistema utiliza tecnologia de realidade virtual para proporcionar uma experiência imersiva de treino de tiro, com 5 modos de jogo distintos e um sistema de progressão baseado em performance.
+O **APEX Training System** é um simulador VR de treino tático desenvolvido para a Base Militar APEX - Centro de Treino Tático Avançado. O sistema utiliza tecnologia de realidade virtual para proporcionar uma experiência imersiva de treino militar, com 5 modos de jogo distintos e um sistema de progressão baseado em performance.
 
 ### 1.2 Objetivo
 Criar um ambiente de treino virtual que:

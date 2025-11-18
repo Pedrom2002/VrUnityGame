@@ -1,18 +1,18 @@
 # NARRATIVA - APEX Training System
-## Academia de Precisão Neural 2045
+## Centro de Treino Tático Avançado
 
 ---
 
 ## 1. Premissa
 
-**Ano:** 2045
+**Ano:** Contemporâneo (2025)
 
-**Local:** Academia de Precisão Neural (Neural Precision Academy - NPA)
+**Local:** Base Militar APEX - Centro de Treino Tático Avançado
 
 **Contexto:**
-Em 2045, a humanidade expandiu sua presença para estações orbitais e colônias lunares. A segurança nestas instalações de alta tecnologia exige profissionais com precisão excepcional e reflexos ultra-rápidos. A **Academia de Precisão Neural (NPA)** foi criada para treinar a próxima geração de especialistas em sistemas de defesa e segurança espacial.
+A Base Militar APEX é uma instalação de treinamento de elite especializada em preparar operadores táticos para missões de alta precisão. Com o avanço da tecnologia VR, a APEX desenvolveu o **Sistema de Treino APEX** - um simulador de realidade virtual avançado que permite aos recrutas treinarem em ambientes controlados antes de enfrentarem situações reais.
 
-O **APEX Training System** é o simulador neural mais avançado já criado, utilizando tecnologia de realidade virtual profunda para treinar recrutas através de cenários progressivamente desafiantes. Cada recruta é guiado por **ARIA** (Advanced Responsive Intelligence Assistant), uma IA tutora que analisa performance em tempo real e adapta o treino às necessidades individuais.
+O sistema foi projetado para avaliar e melhorar as capacidades fundamentais de um operador: precisão, velocidade de reação, tracking de alvos móveis e desempenho sob pressão. Cada recruta é orientado por **ARIA** (Advanced Responsive Intelligence Assistant), um sistema de IA desenvolvido para análise de performance em tempo real e adaptação do treino às necessidades individuais.
 
 ---
 
@@ -22,7 +22,7 @@ O **APEX Training System** é o simulador neural mais avançado já criado, util
 **Identificação:** Recruta APEX-[PlayerID]
 
 **Background:**
-Você é um novo recruta na Academia de Precisão Neural, selecionado entre milhares de candidatos por demonstrar potencial excepcional em testes de aptidão cognitiva e coordenação motora. Seu objetivo é completar o programa APEX e atingir o status de **Operador de Elite**, ganhando certificação para atuar em ambientes de alta pressão em estações orbitais, colônias lunares e missões espaciais profundas.
+Você é um novo recruta na Base Militar APEX, selecionado para passar pelo rigoroso programa de certificação tática. Seu objetivo é completar os cinco níveis de treino e atingir o status de **Operador de Elite**, qualificando-se para missões de alto risco que exigem precisão excepcional.
 
 **Progressão:**
 - **Recruta** (Início) - Bronze Rank
@@ -30,270 +30,236 @@ Você é um novo recruta na Academia de Precisão Neural, selecionado entre milh
 - **Operador Certificado** - Gold Rank
 - **Operador Avançado** - Platinum Rank
 - **Operador de Elite** - Diamond Rank
-- **Lenda APEX** - Beyond Diamond
 
 ### 2.2 ARIA (Advanced Responsive Intelligence Assistant)
-**Tipo:** Inteligência Artificial Tutora
+**Tipo:** Sistema de Inteligência Artificial
 
 **Personalidade:**
-ARIA é uma IA projetada para ser encorajadora mas honesta. Ela celebra sucessos, oferece dicas após falhas e adapta comentários baseando-se na performance do recruta. Sua voz é calma e profissional, com um toque de carisma que a torna memorável.
+ARIA é um sistema de IA militar projetado para ser profissional e motivador. Ela analisa cada movimento, cada disparo, oferecendo feedback construtivo e celebrando conquistas. Sua voz é firme mas encorajadora, equilibrando a disciplina militar com apoio ao progresso do recruta.
 
 **Função:**
-- Introduz cada modo de treino
-- Fornece feedback em tempo real
-- Celebra milestones (streaks, combos, ranks)
-- Oferece dicas após sessões de baixa performance
-- Anuncia progressão de ranks
+- Introduz cada módulo de treino
+- Fornece feedback em tempo real sobre performance
+- Celebra marcos importantes (streaks, combos, ranks)
+- Oferece análise tática após sessões
+- Anuncia progressão de classificação
 
 **Voice Lines (Exemplos):**
-- **Welcome:** *"Welcome to the APEX Training System, Recruit. I'm ARIA, your neural training assistant. Let's begin your journey to precision mastery."*
-- **Good Performance:** *"Excellent work, Recruit. Your neural pathways are adapting quickly."*
-- **Perfect Hit:** *"Bullseye! That's the precision we're looking for."*
-- **Streak Milestone:** *"Impressive! 20-hit streak. You're entering the flow state."*
-- **Rank Up:** *"Congratulations, Recruit. You've achieved Silver Rank. The path to APEX status continues."*
-- **Game Over:** *"Session complete. Analyzing your performance... Let's review your stats."*
+- **Welcome:** *"Recruta, bem-vindo ao Sistema de Treino APEX. Sou ARIA, sua assistente de treino tático. Vamos avaliar suas capacidades de combate."*
+- **Good Performance:** *"Excelente trabalho, Recruta. Suas habilidades estão melhorando."*
+- **Perfect Hit:** *"Tiro perfeito! Precisão como essa salva vidas em campo."*
+- **Streak Milestone:** *"Impressionante! 20 acertos consecutivos. Você está entrando em estado de fluxo."*
+- **Rank Up:** *"Parabéns, Recruta. Você alcançou a classificação Silver. Continue assim."*
+- **Game Over:** *"Sessão completa. Analisando performance... Vamos revisar suas estatísticas."*
 
-### 2.3 Comandante Cross (Lenda APEX)
+### 2.3 Sargento Cross (Lenda APEX)
 **Background:**
-Comandante Sarah Cross é a primeira pessoa a atingir o rank de **Lenda APEX**, completando o Challenge Mode com accuracy de 98% e score acima de 25,000 pontos. Sua presença é sentida através de:
-- High score permanente em todos os modos (23,450 pontos em Challenge Mode)
-- Easter eggs (mensagens motivacionais escondidas)
-- Portrait na sala de treino (futuro)
+Sargento Sarah Cross é a operadora de elite que estabeleceu os recordes atuais do sistema de treino APEX. Com 98% de precisão e 25,000 pontos no Challenge Mode, ela se tornou a referência para todos os recrutas. Sua presença é sentida através de:
+- High score permanente em todos os modos
+- Mensagens motivacionais no sistema
+- Status de lenda da base
 
 **Quote Inspiracional:**
-*"Precision isn't about being perfect. It's about being consistent, adaptive, and never giving up. Every miss is data. Every hit is progress. Welcome to APEX."*
-- Comandante Sarah Cross, 2043
+*"Precisão não é sobre ser perfeito. É sobre ser consistente, adaptável e nunca desistir. Cada erro é uma lição. Cada acerto é progresso. Bem-vindo ao APEX."*
+- Sgt. Sarah Cross, 2023
 
 ---
 
 ## 3. Ambientes
 
-### 3.1 Training Hall (MVP - Implementado)
-**Estética:** Minimalista, branco limpo, iluminação suave
+### 3.1 Sala de Treino Tático (MVP - Implementado)
+**Estética:** Militar, funcional, profissional
 
 **Descrição:**
-O Training Hall é o ambiente de entrada para todos os recrutas. Com design minimalista em tons de branco e cinza, o espaço foi projetado para minimizar distrações e permitir foco total na precisão. Hologramas de grid azul-claro marcam zonas de spawn de alvos.
+A Sala de Treino Tático é o coração do Centro APEX. Com design militar minimalista, o espaço foi construído para simular condições reais de treino. Paredes cinza-concreto, marcações táticas no chão, e equipamento de última geração criam um ambiente que equilibra realismo com segurança.
 
 **Elementos Visuais:**
-- Piso: Grid tecnológico azul-neon
-- Paredes: Branco mate com painéis holográficos
-- Iluminação: Ambiente, sem sombras duras
-- Hologramas: Indicadores de spawn points
-- UI: Painel holográfico flutuante com stats
+- Piso: Concreto com marcações táticas
+- Paredes: Cinza militar com painéis de controle
+- Iluminação: Industrial, focada
+- Equipamento: Racks de armas, painéis de controle
+- UI: Display tático digital
 
-**Atmosfera:** Calma, profissional, clínica
+**Atmosfera:** Profissional, militar, focada
 
 **Audio:**
-- Música: Ambient eletrônica suave
-- Efeitos: Ecos metálicos suaves, hum tecnológico de fundo
+- Música: Industrial/tática de fundo
+- Efeitos: Ecos metálicos, ventilação industrial
 
-### 3.2 Cyber Range (Futuro)
-**Estética:** Futurista neon, cyberpunk
-
-**Descrição:**
-Ambiente noturno futurista com néons vibrantes. Alvos aparecem entre estruturas holográficas e painéis de dados flutuantes. Ideal para Speed Mode e Challenge Mode.
-
-**Elementos:**
-- Neon azul/rosa/roxo
-- Hologramas de dados
-- Ambiente urbano futurista
-- Chuva digital (partículas)
-
-### 3.3 Kinetic Arena (Futuro)
-**Estética:** Escuro, dinâmico, high-tech
+### 3.2 Campo de Tiro Urbano (Futuro)
+**Estética:** Ambiente urbano simulado
 
 **Descrição:**
-Arena dinâmica com plataformas móveis e obstáculos. Alvos aparecem em múltiplos níveis verticais. Projetado para Tracking Mode avançado.
+Cenário de rua urbana com estruturas, janelas e cobertura. Alvos aparecem em múltiplas alturas e posições, simulando ameaças em ambiente urbano.
 
-**Elementos:**
-- Plataformas móveis
-- Níveis verticais
-- Iluminação dramática
-- Obstáculos dinâmicos
-
-### 3.4 Apex Nexus (Futuro)
-**Estética:** Elite, dourado, imponente
+### 3.3 Arena de Resposta Rápida (Futuro)
+**Estética:** High-tech, dinâmico
 
 **Descrição:**
-A arena final, reservada apenas para recrutas que atingem Platinum+. Design luxuoso em dourado e branco, com vista para uma estação espacial através de janelas holográficas.
+Arena com plataformas móveis e obstáculos dinâmicos. Projetada para treino de reação rápida e adaptabilidade.
 
-**Elementos:**
-- Paleta dourada/branca
-- Vista espacial holográfica
-- Iluminação dramática
-- Elementos arquitetônicos imponentes
+### 3.4 Câmara de Elite (Futuro)
+**Estética:** Premium, avançada
+
+**Descrição:**
+A arena final, reservada para operadores Platinum+. Equipada com a tecnologia mais avançada disponível na Base APEX.
 
 ---
 
-## 4. Armas (APEX Arsenal)
+## 4. Armas (Arsenal APEX)
 
-### 4.1 Pulse Pistol (MVP - Implementado)
-**Classificação:** Sidearm Padrão
+### 4.1 Pistola Tática Standard (MVP - Implementado)
+**Classificação:** Arma Padrão de Treino
 
 **Especificações:**
-- **Munição:** 30 rounds, energy-based
+- **Munição:** 30 rounds
 - **Fire Rate:** Semi-automática, 300 RPM
 - **Precisão:** Alta
 - **Recuo:** Baixo
-- **Modelo:** APEX-P1 Standard Issue
+- **Modelo:** APEX-P1 Training Issue
 
 **Descrição:**
-A Pulse Pistol é a arma padrão de todos os recrutas APEX. Dispara pulsos de energia concentrada com precisão excepcional. Design ergonômico otimizado para uso prolongado em ambientes de micro-gravidade.
+A Pistola Tática Standard é a arma de treino padrão para todos os recrutas APEX. Projetada para simular armas de serviço reais com precisão e handling autênticos. Sistema de feedback integrado registra cada disparo para análise.
 
 **Visual:**
-- Cor: Branco/cinza com detalhes azul-neon
-- Laser sight integrado
-- Display holográfico de munição
-- Grip texturizado
+- Cor: Preto tático com marcações APEX
+- Mira laser integrada
+- Display digital de munição
+- Grip ergonómico
 
 **Audio:**
-- Disparo: "Pew" eletrônico satisfatório
-- Reload: Ejeção de célula de energia + click
-- Empty: Beep de aviso
+- Disparo: Som de pistola tática realista
+- Reload: Troca de carregador metálica
+- Empty: Click de câmara vazia
 
-### 4.2 Precision Rifle (Futuro)
-**Classificação:** Arma de Precisão
+### 4.2 Rifle de Precisão (Futuro)
+**Classificação:** Arma de Precisão Avançada
 
 **Especificações:**
-- **Munição:** 15 rounds, high-energy
-- **Fire Rate:** Semi-automática, 120 RPM
+- **Munição:** 20 rounds
+- **Fire Rate:** Semi-automática, 150 RPM
 - **Precisão:** Extrema (com scope)
-- **Recuo:** Médio
-- **Modelo:** APEX-R7 Marksman
+- **Modelo:** APEX-R5 Marksman
 
 **Função:** Desbloqueia em Precision Mode ao atingir Gold Rank
 
-### 4.3 Rapid SMG (Futuro)
-**Classificação:** Arma Rápida
+### 4.3 SMG Tática (Futuro)
+**Classificação:** Arma de Resposta Rápida
 
 **Especificações:**
-- **Munição:** 50 rounds
-- **Fire Rate:** Automática, 900 RPM
+- **Munição:** 40 rounds
+- **Fire Rate:** Automática, 800 RPM
 - **Precisão:** Média
-- **Recuo:** Alto
-- **Modelo:** APEX-S9 Velocity
+- **Modelo:** APEX-S4 Rapid
 
 **Função:** Desbloqueia em Speed Mode ao atingir Gold Rank
 
 ---
 
-## 5. Alvos (Target Classification)
+## 5. Alvos (Classificação de Ameaças)
 
-### 5.1 Basic Target (Classe: Standard)
+### 5.1 Alvo Básico (Classe: Standard)
 **Código:** TGT-B01
 
 **Descrição:**
-Alvo holográfico esférico padrão em vermelho-laranja. Utilizado em Training Mode e como base em todos os outros modos.
+Alvo de treino padrão simulando ameaça estática. Utilizado em Training Mode e como base em todos os outros modos.
 
 **Características:**
-- Tamanho: 1.0 unidade (sphere)
-- Cor: Vermelho-laranja (#FF4500)
+- Tamanho: 1.0 unidade
+- Cor: Vermelho-laranja (simulando ameaça)
 - Lifetime: 10 segundos
 - Pontuação: 100 pontos
 
 **Visual Effect:**
-- Hit: Explosão de partículas laranja
-- Destroy: Dissolver holográfico
+- Hit: Impacto com feedback visual
+- Destroy: Desativação do alvo
 
-### 5.2 Precision Target (Classe: High-Value)
+### 5.2 Alvo de Precisão (Classe: High-Priority)
 **Código:** TGT-P02
 
 **Descrição:**
-Alvo menor com zonas de pontuação visíveis (bullseye, inner, outer). Exige precisão máxima.
+Alvo menor com zonas de pontuação marcadas. Exige precisão cirúrgica para máximo score.
 
 **Características:**
-- Tamanho: 0.5 unidade (menor)
-- Cor: Azul elétrico (#0080FF)
+- Tamanho: 0.5 unidade
+- Cor: Azul (alvo prioritário)
 - Zonas visíveis: 3 círculos concêntricos
-- Pontuação: Até 200 pontos (bullseye)
+- Pontuação: Até 200 pontos
 
 **Zonas:**
 - Outer (azul claro): 100 pts
 - Inner (azul médio): 150 pts
-- Bullseye (azul escuro): 200 pts
+- Center Mass (azul escuro): 200 pts
 
-### 5.3 Speed Target (Classe: Rapid-Deploy)
+### 5.3 Alvo Rápido (Classe: Time-Critical)
 **Código:** TGT-S03
 
 **Descrição:**
-Alvo de spawn/despawn rápido. Aparece por apenas 3 segundos.
+Ameaça de aparição rápida. Simula alvos que aparecem brevemente e exigem reação imediata.
 
 **Características:**
 - Tamanho: 1.0 unidade
-- Cor: Amarelo vibrante (#FFD700)
+- Cor: Amarelo (alerta de tempo)
 - Lifetime: 3 segundos apenas
 - Pontuação: 100 pontos
-- Visual: Pisca nos últimos 0.5s
+- Visual: Pisca no último 0.5s
 
-### 5.4 Moving Target (Classe: Dynamic)
+### 5.4 Alvo Móvel (Classe: Dynamic Threat)
 **Código:** TGT-M04
 
 **Descrição:**
-Alvo em movimento constante. Exige tracking e leading shots.
+Ameaça em movimento constante. Treina tracking e antecipação de movimento.
 
 **Características:**
 - Tamanho: 1.0 unidade
-- Cor: Verde-neon (#00FF00)
-- 6 padrões de movimento
-- Pontuação: 150 pontos (movimento é bonus)
+- Cor: Verde (ameaça móvel)
+- Padrões: 6 tipos de movimento
+- Pontuação: 150 pontos
 
-**Padrões:**
-1. Linear - Linha reta
-2. Circular - Órbita
-3. Zigzag - Padrão em Z
+**Padrões de Movimento:**
+1. Linear - Movimento em linha
+2. Circular - Padrão orbital
+3. Zigzag - Movimento evasivo
 4. Random - Imprevisível
-5. Figure8 - Formato de 8
-6. Bounce - Entre pontos
-
-### 5.5 Combo Target (Classe: Multi-Hit) [Futuro]
-**Código:** TGT-C05
-
-**Descrição:**
-Alvo que exige múltiplos hits para destruir. Treina sustentação de fogo.
-
-**Características:**
-- Tamanho: 1.5 unidade (maior)
-- Cor: Roxo (#8B00FF)
-- Hits required: 3
-- Pontuação: 300 pontos (total)
-- Visual: Muda de cor a cada hit
+5. Figure8 - Padrão complexo
+6. Bounce - Entre posições
 
 ---
 
 ## 6. Progressão Narrativa (5 Fases)
 
-### Fase 1: Orientação (Training Mode)
-**Objetivo:** Familiarização com sistema APEX
+### Fase 1: Orientação Básica (Training Mode)
+**Objetivo:** Familiarização com sistemas e armas
 
 **ARIA Introduction:**
-*"Welcome, Recruit. This is the APEX Training System. Here, you'll develop the neural precision required for orbital security operations. Let's start with the basics. Take your time, focus on accuracy over speed. There's no timer in Training Mode - this is your safe space to learn."*
+*"Bem-vindo ao Sistema de Treino APEX, Recruta. Este é o seu primeiro dia. Vamos começar com o básico. Familiarize-se com sua arma, aprenda as mecânicas. No Training Mode não há pressão de tempo - foque na precisão."*
 
 **Milestones:**
-- Primeiro alvo destruído
+- Primeiro alvo neutralizado
 - 10-hit streak
-- 90% accuracy em uma sessão
+- 90% accuracy numa sessão
 - **Unlock:** Precision Mode
 
-### Fase 2: Desenvolvimento (Precision Mode)
-**Objetivo:** Refinamento de precisão
+### Fase 2: Treino de Precisão (Precision Mode)
+**Objetivo:** Refinamento de habilidades de tiro
 
 **ARIA:**
-*"You've mastered the basics. Now let's test your true precision. These targets are smaller, but hitting the bullseye will prove your neural pathways are synchronizing perfectly. Precision is the foundation of APEX mastery."*
+*"Você dominou o básico. Agora vamos testar sua verdadeira precisão. Alvos menores, maior exigência. Nos cenários reais, às vezes você só tem uma chance. Faça cada tiro contar."*
 
 **Milestones:**
-- 50% bullseye hits
+- 50% center mass hits
 - Atingir Silver Rank
 - 95% accuracy
 - **Unlock:** Speed Mode
 
-### Fase 3: Especialização (Speed/Tracking Mode)
+### Fase 3: Resposta Rápida (Speed/Tracking Mode)
 **Objetivo:** Desenvolver velocidade ou tracking
 
 **ARIA (Speed):**
-*"Speed without precision is chaos. Precision without speed is insufficient. In real orbital scenarios, threats don't wait. You have 60 seconds. Show me what you've learned."*
+*"Velocidade sem precisão é inútil. Precisão sem velocidade pode ser fatal. Em situações reais, ameaças não esperam. Você tem 60 segundos. Mostre-me do que é capaz."*
 
 **ARIA (Tracking):**
-*"Targets in motion. Just like debris in orbital space - always moving, always unpredictable. Lead your shots, anticipate movement. Let your neural prediction kick in."*
+*"Alvos em movimento. Como ameaças reais - sempre em movimento, sempre mudando. Antecipe o movimento, ajuste sua mira. Use seus instintos."*
 
 **Milestones:**
 - 100+ alvos em Speed Mode
@@ -301,26 +267,26 @@ Alvo que exige múltiplos hits para destruir. Treina sustentação de fogo.
 - Atingir Gold Rank
 - **Unlock:** Challenge Mode
 
-### Fase 4: Maestria (Challenge Mode)
-**Objetivo:** Teste definitivo
+### Fase 4: Teste Final (Challenge Mode)
+**Objetivo:** Prova definitiva de habilidade
 
 **ARIA:**
-*"This is it, Recruit. The ultimate test. All target types, increasing difficulty, 3 minutes. Only the best reach Platinum from here. Comandante Cross set the record at 23,450 points. Think you can match a legend?"*
+*"Este é o teste final, Recruta. Todos os tipos de ameaça, dificuldade crescente, 3 minutos. Apenas os melhores alcançam Platinum daqui. O Sargento Cross estabeleceu o recorde em 23,450 pontos. Acha que consegue?"*
 
 **Milestones:**
 - Completar Challenge Mode
 - Atingir Platinum Rank
 - 15,000+ pontos
-- **Unlock:** Apex Nexus (futuro)
+- **Unlock:** Status de Elite
 
-### Fase 5: Lenda (Diamond Rank)
-**Objetivo:** Tornar-se lenda APEX
+### Fase 5: Operador de Elite (Diamond Rank)
+**Objetivo:** Atingir o topo
 
 **ARIA:**
-*"Incredible, Recruit... no, I should say OPERATOR. You've achieved what less than 1% of all trainees accomplish. Diamond Rank. You're ready for real orbital operations. Your name will be added to the APEX Hall of Legends, alongside Comandante Cross. Congratulations."*
+*"Incrível, Recruta... não, OPERADOR. Você alcançou o que menos de 1% dos trainees conseguem. Diamond Rank. Suas habilidades foram comprovadas. Seu nome será adicionado ao Hall de Elite da Base APEX, ao lado do Sargento Cross. Parabéns."*
 
 **Achievements:**
-- 10,000+ pontos em um único modo
+- 10,000+ pontos num único modo
 - 95%+ accuracy consistente
 - Reconhecimento de elite
 - Nome no leaderboard permanente
@@ -329,96 +295,85 @@ Alvo que exige múltiplos hits para destruir. Treina sustentação de fogo.
 
 ## 7. Easter Eggs & Lore
 
-### 7.1 Mensagens Escondidas
-**Localização:** Training Hall, painéis holográficos
+### 7.1 Mensagens do Sistema
+**Localização:** Painéis de controle da sala de treino
 
 **Mensagens:**
-1. *"First recruit to 100-streak: Lt. Marcus Chen, 2043"*
-2. *"NPA founded 2042 by Dr. Elena Volkov"*
-3. *"ARIA v3.7 - 'More human than human' - Dr. Volkov"*
-4. *"Record training time to Diamond: 47 hours - Cross, S."*
-5. *"Total recruits graduated: 12,847"*
+1. *"Primeiro recruta a 100-streak: Lt. Marcus Chen, 2023"*
+2. *"Base APEX fundada em 2020 pela General Elena Volkov"*
+3. *"Sistema ARIA v3.7 - 'Treino adaptativo' - Dr. Volkov"*
+4. *"Record de treino para Diamond: 47 horas - Cross, S."*
+5. *"Total de operadores graduados: 12,847"*
 
 ### 7.2 ARIA Personality Easter Eggs
 **Triggers Raros:**
 
 **100-hit streak:**
-*"Whoa! 100 hits! Even I'm impressed, and I'm programmed not to feel surprise. You're making history, Recruit."*
+*"Cem acertos consecutivos! Mesmo para mim, isso é impressionante, e eu sou programada para não sentir surpresa. Você está fazendo história, Operador."*
 
 **0% accuracy após 10 shots:**
-*"Okay, um... have you considered turning the weapon on? I'm kidding! Deep breath, focus on the fundamentals. You've got this."*
+*"Okay, vamos tentar de novo. Respirar fundo, foco nos fundamentos. Todos começam em algum lugar. Você consegue."*
 
-**Breaking Comandante Cross record:**
-*"ALERT: NEW RECORD! 23,500 points! Unbelievable! I'm sending notification to Academy Command. Comandante Cross, you have competition!"*
-
-### 7.3 Terminal Logs (Futuro)
-**Acessível via menu Settings → Lore**
-
-**Log Entries:**
-- Dr. Volkov's research notes
-- Comandante Cross mission reports
-- ARIA development logs
-- NPA founding documents
-- Future of orbital security projections
+**Breaking Sargento Cross record:**
+*"ALERTA: NOVO RECORDE! 23,500 pontos! Inacreditável! Notificando comando da base. Sargento Cross, você tem competição!"*
 
 ---
 
-## 8. Audio & Voice Design
+## 8. Audio & Design
 
 ### 8.1 Music Themes
-**Menu Music:** "Neural Sync" - Ambient, hopeful, tech
-**Training Mode:** "Foundation" - Calma, focada
-**Precision Mode:** "Bullseye" - Tensão crescente
-**Speed Mode:** "Velocity" - Ritmo rápido, pulsante
-**Tracking Mode:** "Motion" - Dinâmica, fluida
-**Challenge Mode:** "Apex Rising" - Épica, intensa
-**Game Over:** "Analysis Complete" - Reflexiva
+**Menu Music:** "Base APEX" - Ambiente militar profissional
+**Training Mode:** "Fundamentals" - Focada, metódica
+**Precision Mode:** "Marksman" - Tensão controlada
+**Speed Mode:** "Rapid Response" - Rápida, intensa
+**Tracking Mode:** "Dynamic Threat" - Fluida, adaptável
+**Challenge Mode:** "Apex Operation" - Épica, militar
+**Game Over:** "After Action Report" - Reflexiva
 
 ### 8.2 ARIA Voice Direction
-**Tom:** Profissional, encorajador, levemente carismático
-**Accent:** Neutro, ligeiramente British
-**Delivery:** Clara, articulada, sem pressa
-**Emotion Range:** Calma → Impressionada → Celebrativa
+**Tom:** Profissional militar, encorajador
+**Delivery:** Clara, autoritária mas apoiadora
+**Emotion Range:** Firme → Impressionada → Celebrativa
 
 ### 8.3 SFX Design
 **Weapon:**
-- Shoot: Pulso de energia satisfatório
-- Reload: Mecânico-tecnológico
-- Empty: Beep de aviso
+- Shoot: Som tático realista
+- Reload: Mecânico, metálico
+- Empty: Click realista
 
 **Targets:**
-- Spawn: Materialização holográfica
-- Hit: Impacto energético
-- Destroy: Dissolução digital
+- Spawn: Ativação de alvo
+- Hit: Impacto tático
+- Destroy: Desativação
 
 **UI:**
-- Button click: Beep afirmativo
-- Mode select: Tom ascendente
-- Rank up: Fanfarra de conquista
+- Button click: Beep militar
+- Mode select: Confirmação tática
+- Rank up: Som de conquista
 
 ---
 
 ## 9. Themes & Messages
 
 ### 9.1 Core Themes
-**1. Precisão é Progressão**
-Cada tiro, cada hit, cada miss é data. Melhoria vem de prática consciente, não sorte.
+**1. Treino Salva Vidas**
+Cada sessão prepara para situações reais. O treino rigoroso é o que separa operadores de elite dos demais.
 
-**2. Tecnologia Humana**
-ARIA representa IA auxiliar, não substituta. A habilidade humana é insubstituível.
+**2. Tecnologia Como Ferramenta**
+ARIA representa tecnologia a serviço do desenvolvimento humano, não substituição.
 
-**3. Jornada Individual**
-Não há leaderboards forçados no MVP. Você compete contra seu próprio melhor.
+**3. Progressão Através de Dedicação**
+Ranks não são dados - são conquistados através de prática consistente.
 
-**4. Preparação para o Futuro**
-Treinar hoje para os desafios de amanhã. Contexto de 2045 mostra importância de preparação.
+**4. Preparação para o Desconhecido**
+O treino nunca acaba. Sempre há margem para melhorar.
 
 ### 9.2 Player Experience Goals
-**Feel Like:** Um operador de elite em treino
-**Progression Feel:** Satisfatória e clara
-**Challenge Feel:** Difícil mas fair
-**Atmosphere Feel:** Profissional, sci-fi, high-tech
-**Accomplishment Feel:** "EU consegui isso" ao atingir milestones
+**Feel Like:** Um operador tático em treino de elite
+**Progression Feel:** Clara e merecida
+**Challenge Feel:** Difícil mas justa
+**Atmosphere Feel:** Militar, profissional, motivadora
+**Accomplishment Feel:** "EU conquistei isso" ao atingir milestones
 
 ---
 
@@ -426,9 +381,9 @@ Treinar hoje para os desafios de amanhã. Contexto de 2045 mostra importância d
 
 ### 10.1 Color Palette
 **Primary:**
+- Military Gray: `#4A4A4A`
+- Tactical Black: `#1A1A1A`
 - APEX Blue: `#0080FF`
-- Neural White: `#F0F0F0`
-- Tech Gray: `#404040`
 
 **Accent:**
 - Success Green: `#00FF00`
@@ -443,68 +398,68 @@ Treinar hoje para os desafios de amanhã. Contexto de 2045 mostra importância d
 - Diamond: `#B9F2FF`
 
 ### 10.2 Typography
-**UI Font:** Orbitron (Sci-fi, futuristic)
-**Stats Font:** Roboto Mono (Monospace, data-like)
-**Accent Font:** Exo 2 (Headers, titles)
+**UI Font:** Rajdhani (Militar, técnico)
+**Stats Font:** Roboto Mono (Dados, informação)
+**Accent Font:** Exo 2 (Headers, títulos)
 
 ### 10.3 Iconography
-- Simple geometric shapes
-- Neon outlines
-- Holographic effects
-- Minimal, high-tech
+- Formas geométricas táticas
+- Símbolos militares
+- Indicadores de status
+- Minimal, profissional
 
 ---
 
-## 11. Expansão Futura (Lore Hooks)
+## 11. Expansão Futura
 
 ### 11.1 Story Expansion
-**ARIA's Origin:** Quem foi Dr. Elena Volkov? Porque criou ARIA?
+**ARIA's Origin:** Quem desenvolveu o sistema? História da General Volkov?
 
-**Comandante Cross:** Missão que a tornou lenda? Onde está agora?
+**Sargento Cross:** Qual sua história? Missões que completou?
 
-**Other Recruits:** NPCs ou ghosts de outros recrutas? Co-op mode?
+**Other Recrutas:** Sistema de co-op? Competição entre recrutas?
 
-**The Academy:** Mais sobre NPA, sua fundação, objetivos
+**A Base:** Mais sobre a instalação APEX, sua missão
 
 ### 11.2 Gameplay Expansion
-**Campaign Mode:** Missões narrativas com objectives
-**Boss Challenges:** Comandante Cross simulation battle
-**Customization:** Skins de armas, ARIA voice packs
+**Campaign Mode:** Missões narrativas com objetivos táticos
+**Boss Challenges:** Simulação de combate contra elite
+**Customization:** Skins de armas, patches, emblemas
 **Achievements Lore:** Cada achievement desbloqueia lore
 
 ---
 
-## 12. Imersão & Details
+## 12. Imersão & Detalhes
 
 ### 12.1 Environmental Storytelling
-**Training Hall Details:**
-- Wear marks no chão (área mais usada)
-- Hologramas glitching sutilmente
-- Screen mostrando stats de outros recrutas (anonymized)
-- Terminal com logs da Academia
+**Sala de Treino Details:**
+- Marcas de uso no chão (área mais utilizada)
+- Equipamento militar autêntico
+- Placar com top performers
+- Terminal com dados de treino
 
 ### 12.2 Feedback Loops
 **Positivo:**
-- ARIA celebra milestones
-- Visual effects mais impressionantes em streaks
-- Audio cues satisfatórios
+- ARIA celebra conquistas
+- Visual effects satisfatórios
+- Audio cues recompensadores
 
-**Negativo:**
-- ARIA oferece dicas construtivas
-- Visual feedback de miss (subtle)
-- Áudio de apoio (não punitivo)
+**Construtivo:**
+- ARIA oferece dicas técnicas
+- Feedback visual de erro (sutil)
+- Áudio de apoio motivador
 
 ### 12.3 Player Agency
 - Escolha de modo de jogo
-- Controle de difficulty (via modo escolhido)
-- Laser sight toggle (settings)
-- Volume controls individual
+- Controle de dificuldade
+- Configurações de arma (laser sight)
+- Controles de volume individuais
 
 ---
 
 **Documento criado por:** APEX Narrative Design Team
 **Data:** Novembro 2025
 **Status:** ✅ Completo (MVP)
-**Versão:** 1.0
+**Versão:** 2.0 - Military Edition
 
-*"Welcome to APEX. Your journey to precision mastery begins now."* - ARIA
+*"Precisão não é sobre ser perfeito. É sobre ser consistente, adaptável e nunca desistir."* - Sgt. Sarah Cross
