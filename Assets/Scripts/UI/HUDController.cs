@@ -5,10 +5,8 @@ using VRAimLab.Core;
 
 namespace VRAimLab.UI
 {
-    /// <summary>
     /// HUD Controller - manages in-game HUD display
     /// Shows score, timer, accuracy, streak, combo, ammo, rank
-    /// </summary>
     public class HUDController : MonoBehaviour
     {
         #region Inspector Fields
@@ -62,9 +60,7 @@ namespace VRAimLab.UI
         #endregion
 
         #region Initialization
-        /// <summary>
         /// Reset HUD to initial state
-        /// </summary>
         public void ResetHUD()
         {
             UpdateScore(0);
@@ -91,9 +87,7 @@ namespace VRAimLab.UI
         #endregion
 
         #region Score Updates
-        /// <summary>
         /// Update score display
-        /// </summary>
         public void UpdateScore(int score)
         {
             if (enableAnimations)
@@ -108,9 +102,7 @@ namespace VRAimLab.UI
             }
         }
 
-        /// <summary>
         /// Animate score counting up
-        /// </summary>
         private void AnimateScoreUpdate()
         {
             if (currentDisplayedScore == targetScore) return;
@@ -127,9 +119,7 @@ namespace VRAimLab.UI
             }
         }
 
-        /// <summary>
         /// Update score text element
-        /// </summary>
         private void UpdateScoreText(int score)
         {
             if (scoreText != null)
@@ -138,9 +128,7 @@ namespace VRAimLab.UI
             }
         }
 
-        /// <summary>
         /// Update accuracy display
-        /// </summary>
         public void UpdateAccuracy(float accuracy)
         {
             if (accuracyText != null)
@@ -161,9 +149,7 @@ namespace VRAimLab.UI
         #endregion
 
         #region Timer Updates
-        /// <summary>
         /// Update timer display
-        /// </summary>
         public void UpdateTimer(float timeRemaining)
         {
             if (timerText != null)
@@ -222,9 +208,7 @@ namespace VRAimLab.UI
         #endregion
 
         #region Streak & Combo Updates
-        /// <summary>
         /// Update streak display
-        /// </summary>
         public void UpdateStreak(int streak)
         {
             if (streakText != null)
@@ -239,9 +223,7 @@ namespace VRAimLab.UI
             }
         }
 
-        /// <summary>
         /// Update combo multiplier display
-        /// </summary>
         public void UpdateCombo(int multiplier)
         {
             if (comboText != null)
@@ -259,9 +241,7 @@ namespace VRAimLab.UI
             }
         }
 
-        /// <summary>
         /// Get color for combo multiplier
-        /// </summary>
         private Color GetComboColor(int multiplier)
         {
             switch (multiplier)
@@ -274,9 +254,7 @@ namespace VRAimLab.UI
             }
         }
 
-        /// <summary>
         /// Show streak milestone banner
-        /// </summary>
         private void ShowStreakBanner(int streak)
         {
             if (streakBanner == null) return;
@@ -290,9 +268,7 @@ namespace VRAimLab.UI
             streakBannerCoroutine = StartCoroutine(ShowStreakBannerCoroutine(streak));
         }
 
-        /// <summary>
         /// Streak banner animation coroutine
-        /// </summary>
         private System.Collections.IEnumerator ShowStreakBannerCoroutine(int streak)
         {
             if (streakBannerText != null)
@@ -346,9 +322,7 @@ namespace VRAimLab.UI
         #endregion
 
         #region Ammo Updates
-        /// <summary>
         /// Update ammo display
-        /// </summary>
         public void UpdateAmmo(int current, int max)
         {
             if (ammoText != null)
@@ -378,9 +352,7 @@ namespace VRAimLab.UI
             }
         }
 
-        /// <summary>
         /// Update ammo with percentage
-        /// </summary>
         public void UpdateAmmoPercentage(float percentage)
         {
             if (ammoFillImage != null)
@@ -391,9 +363,7 @@ namespace VRAimLab.UI
         #endregion
 
         #region Rank Updates
-        /// <summary>
         /// Update rank display
-        /// </summary>
         public void UpdateRank(Rank rank)
         {
             if (rankText != null)
@@ -416,17 +386,13 @@ namespace VRAimLab.UI
         #endregion
 
         #region Public Utility Methods
-        /// <summary>
         /// Show/hide HUD
-        /// </summary>
         public void SetHUDVisible(bool visible)
         {
             gameObject.SetActive(visible);
         }
 
-        /// <summary>
         /// Set HUD opacity
-        /// </summary>
         public void SetHUDOpacity(float alpha)
         {
             CanvasGroup cg = GetComponent<CanvasGroup>();

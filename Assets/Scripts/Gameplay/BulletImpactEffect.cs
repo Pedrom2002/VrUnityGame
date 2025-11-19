@@ -2,10 +2,8 @@ using UnityEngine;
 
 namespace VRAimLab.Gameplay
 {
-    /// <summary>
     /// Bullet Impact Effect melhorado com partículas, marca de bala e som
     /// Anexe este script ao prefab de impacto
-    /// </summary>
     public class BulletImpactEffect : MonoBehaviour
     {
         [Header("Impact Settings")]
@@ -194,9 +192,7 @@ namespace VRAimLab.Gameplay
             bulletHole.transform.localPosition = -Vector3.forward * 0.01f;
         }
 
-        /// <summary>
         /// Inicializar com normal da superfície para orientar efeitos
-        /// </summary>
         public void Initialize(Vector3 normal)
         {
             // Orientar para a normal da superfície

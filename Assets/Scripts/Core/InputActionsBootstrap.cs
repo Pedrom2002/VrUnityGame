@@ -3,11 +3,9 @@ using UnityEngine.InputSystem;
 
 namespace VRAimLab.Core
 {
-    /// <summary>
     /// Automatically enables all Input Actions when the game starts
     /// This script ensures all Input Actions are enabled without manual intervention
     /// Add this to a GameObject in your first scene or use [RuntimeInitializeOnLoadMethod]
-    /// </summary>
     public class InputActionsBootstrap : MonoBehaviour
     {
         [Header("Input Action Assets")]
@@ -35,9 +33,7 @@ namespace VRAimLab.Core
             }
         }
 
-        /// <summary>
         /// Enable all assigned Input Action Assets
-        /// </summary>
         public void EnableAllInputActions()
         {
             int enabledCount = 0;
@@ -77,9 +73,7 @@ namespace VRAimLab.Core
             }
         }
 
-        /// <summary>
         /// Find and enable all Input Action Assets in the project
-        /// </summary>
         private void FindAndEnableAllInputActionAssets()
         {
             // Load all Input Action Assets from Resources
@@ -106,9 +100,7 @@ namespace VRAimLab.Core
             Debug.Log($"[InputBootstrap] Auto-enabled {enabledCount} Input Action Asset(s)");
         }
 
-        /// <summary>
         /// Disable all assigned Input Action Assets
-        /// </summary>
         public void DisableAllInputActions()
         {
             if (inputActionAssets != null && inputActionAssets.Length > 0)
@@ -162,10 +154,8 @@ namespace VRAimLab.Core
 #endif
     }
 
-    /// <summary>
     /// Alternative: Use RuntimeInitializeOnLoadMethod to enable Input Actions automatically
     /// This runs before any scene loads
-    /// </summary>
     public static class InputActionsAutoEnable
     {
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]

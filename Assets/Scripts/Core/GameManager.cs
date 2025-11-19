@@ -8,9 +8,7 @@ using VRAimLab.Gameplay;
 namespace VRAimLab.Core
 {
     #region Enums
-    /// <summary>
     /// Available game modes in VR Aim Lab
-    /// </summary>
     public enum GameMode
     {
         Training,   // No timer, practice mode
@@ -20,9 +18,7 @@ namespace VRAimLab.Core
         Challenge   // Mix of all, hardest difficulty
     }
 
-    /// <summary>
     /// Current state of the game
-    /// </summary>
     public enum GameState
     {
         Menu,
@@ -32,10 +28,8 @@ namespace VRAimLab.Core
     }
     #endregion
 
-    /// <summary>
     /// Main game manager - handles game flow, scoring, modes, and state
     /// Singleton pattern for easy access from any script
-    /// </summary>
     public class GameManager : MonoBehaviour
     {
         #region Singleton
@@ -43,13 +37,14 @@ namespace VRAimLab.Core
 
         private void Awake()
         {
+            // Garantir que só existe uma instância do GameManager (singleton)
             if (Instance != null && Instance != this)
             {
                 Destroy(gameObject);
                 return;
             }
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(gameObject);  // Persistir entre cenas
         }
         #endregion
 
@@ -109,48 +104,47 @@ namespace VRAimLab.Core
         #endregion
 
         #region Initialization
-        /// <summary>
         /// Initialize game systems
-        /// </summary>
         private void InitializeGame()
         {
+            // Obter ou criar o ScoreSystem
             scoreSystem = GetComponent<ScoreSystem>();
             if (scoreSystem == null)
             {
                 scoreSystem = gameObject.AddComponent<ScoreSystem>();
             }
 
-            // Find references if not set
+            // Encontrar referências se não foram atribuídas no inspector
             if (targetSpawner == null)
                 targetSpawner = FindFirstObjectByType<TargetSpawner>();
 
             if (uiManager == null)
                 uiManager = FindFirstObjectByType<UIManager>();
 
+            // Começar no menu principal
             ChangeGameState(GameState.Menu);
         }
         #endregion
 
         #region Game Flow
-        /// <summary>
         /// Start a new game with specified mode
-        /// </summary>
-        /// <param name="mode">Game mode to play</param>
         public void StartGame(GameMode mode)
         {
             currentGameMode = mode;
-            ConfigureGameMode(mode);
+            ConfigureGameMode(mode);  // Define duração e dificuldade baseado no modo
 
+            // Resetar estatísticas da sessão anterior
             scoreSystem.ResetScore();
             currentTime = gameDuration;
             currentDifficultyLevel = 1;
             difficultyTimer = 0f;
             isGameActive = true;
 
+            // Notificar sistemas sobre o novo modo
             OnGameModeChanged?.Invoke(mode);
             ChangeGameState(GameState.Playing);
 
-            // Start spawning targets
+            // Começar a spawnar alvos
             if (targetSpawner != null)
             {
                 targetSpawner.StartSpawning(mode);
@@ -187,47 +181,41 @@ namespace VRAimLab.Core
         {
             if (currentGameState == GameState.Playing)
             {
-                Time.timeScale = 0f;
+                Time.timeScale = 0f;  // Congelar o tempo
                 ChangeGameState(GameState.Paused);
             }
         }
 
-        /// <summary>
         /// Resume from pause
-        /// </summary>
         public void ResumeGame()
         {
             if (currentGameState == GameState.Paused)
             {
-                Time.timeScale = 1f;
+                Time.timeScale = 1f;  // Retomar tempo normal
                 ChangeGameState(GameState.Playing);
             }
         }
 
-        /// <summary>
         /// End the current game
-        /// </summary>
         public void EndGame()
         {
             isGameActive = false;
-            Time.timeScale = 1f;
+            Time.timeScale = 1f;  // Garantir que o tempo volta ao normal
 
-            // Stop spawning
+            // Parar de spawnar alvos
             if (targetSpawner != null)
             {
                 targetSpawner.StopSpawning();
             }
 
-            // Save high score
+            // Guardar high score se batemos o anterior
             SaveHighScore();
 
             ChangeGameState(GameState.GameOver);
             Debug.Log($"[GameManager] Game Over - Final Score: {CurrentScore}");
         }
 
-        /// <summary>
         /// Return to main menu
-        /// </summary>
         public void ReturnToMenu()
         {
             Time.timeScale = 1f;
@@ -243,9 +231,7 @@ namespace VRAimLab.Core
         #endregion
 
         #region Game Mode Configuration
-        /// <summary>
         /// Configure game parameters based on selected mode
-        /// </summary>
         private void ConfigureGameMode(GameMode mode)
         {
             switch (mode)
@@ -279,21 +265,21 @@ namespace VRAimLab.Core
         #endregion
 
         #region Timer System
-        /// <summary>
         /// Update game timer each frame
-        /// </summary>
         private void UpdateGameTimer()
         {
-            // Training mode has no timer
+            // Training mode não tem timer (tempo infinito)
             if (currentGameMode == GameMode.Training)
             {
-                OnTimerUpdated?.Invoke(-1f);
+                OnTimerUpdated?.Invoke(-1f);  // -1 indica infinito para a UI
                 return;
             }
 
+            // Decrementar o tempo restante
             currentTime -= Time.deltaTime;
             OnTimerUpdated?.Invoke(currentTime);
 
+            // Acabou o tempo, terminar o jogo
             if (currentTime <= 0f)
             {
                 EndGame();
@@ -302,21 +288,21 @@ namespace VRAimLab.Core
         #endregion
 
         #region Difficulty System
-        /// <summary>
         /// Update adaptive difficulty during gameplay
-        /// </summary>
         private void UpdateDifficulty()
         {
+            // Training mode não tem progressão de dificuldade
             if (!adaptiveDifficulty) return;
 
             difficultyTimer += Time.deltaTime;
 
+            // A cada 30 segundos aumentar a dificuldade
             if (difficultyTimer >= difficultyIncreaseInterval)
             {
                 difficultyTimer = 0f;
                 currentDifficultyLevel++;
 
-                // Notify spawner to increase difficulty
+                // Informar o spawner para aumentar dificuldade (spawn mais rápido, mais alvos)
                 if (targetSpawner != null)
                 {
                     targetSpawner.IncreaseDifficulty(currentDifficultyLevel);
@@ -328,9 +314,7 @@ namespace VRAimLab.Core
         #endregion
 
         #region State Management
-        /// <summary>
         /// Change the current game state
-        /// </summary>
         private void ChangeGameState(GameState newState)
         {
             if (currentGameState == newState) return;
@@ -349,9 +333,7 @@ namespace VRAimLab.Core
         #endregion
 
         #region Scoring
-        /// <summary>
         /// Called when player hits a target
-        /// </summary>
         public void OnTargetHit(int points, bool isPerfectHit)
         {
             if (scoreSystem != null)
@@ -367,9 +349,7 @@ namespace VRAimLab.Core
             }
         }
 
-        /// <summary>
         /// Called when player misses a shot
-        /// </summary>
         public void OnShotMissed()
         {
             if (scoreSystem != null)
@@ -378,9 +358,7 @@ namespace VRAimLab.Core
             }
         }
 
-        /// <summary>
         /// Called when a target expires without being hit
-        /// </summary>
         public void OnTargetExpired()
         {
             if (scoreSystem != null)
@@ -391,9 +369,7 @@ namespace VRAimLab.Core
         #endregion
 
         #region Save/Load
-        /// <summary>
         /// Save high score for current game mode
-        /// </summary>
         private void SaveHighScore()
         {
             string key = $"HighScore_{currentGameMode}";
@@ -410,17 +386,13 @@ namespace VRAimLab.Core
             }
         }
 
-        /// <summary>
         /// Get high score for a specific game mode
-        /// </summary>
         public int GetHighScore(GameMode mode)
         {
             return PlayerPrefs.GetInt($"HighScore_{mode}", 0);
         }
 
-        /// <summary>
         /// Get high score accuracy for a specific game mode
-        /// </summary>
         public float GetHighScoreAccuracy(GameMode mode)
         {
             return PlayerPrefs.GetFloat($"HighScoreAccuracy_{mode}", 0f);
@@ -428,9 +400,7 @@ namespace VRAimLab.Core
         #endregion
 
         #region Public Methods
-        /// <summary>
         /// Add time to the current game (bonus time pickup)
-        /// </summary>
         public void AddBonusTime(float seconds)
         {
             if (currentGameMode != GameMode.Training)
@@ -440,9 +410,7 @@ namespace VRAimLab.Core
             }
         }
 
-        /// <summary>
         /// Get formatted time string
-        /// </summary>
         public string GetFormattedTime()
         {
             if (currentGameMode == GameMode.Training)

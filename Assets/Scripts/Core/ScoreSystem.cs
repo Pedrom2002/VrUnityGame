@@ -3,9 +3,7 @@ using UnityEngine;
 
 namespace VRAimLab.Core
 {
-    /// <summary>
     /// Ranking system based on performance
-    /// </summary>
     public enum Rank
     {
         Bronze,
@@ -15,10 +13,8 @@ namespace VRAimLab.Core
         Diamond
     }
 
-    /// <summary>
     /// Score system - handles scoring, accuracy, streaks, combos, and rankings
     /// Attached to GameManager
-    /// </summary>
     public class ScoreSystem : MonoBehaviour
     {
         #region Events
@@ -53,9 +49,7 @@ namespace VRAimLab.Core
         public int ComboMultiplier => comboMultiplier;
         public Rank CurrentRank => currentRank;
 
-        /// <summary>
         /// Calculate accuracy percentage (0-100)
-        /// </summary>
         public float Accuracy
         {
             get
@@ -65,9 +59,7 @@ namespace VRAimLab.Core
             }
         }
 
-        /// <summary>
         /// Get accuracy as ratio (0-1)
-        /// </summary>
         public float AccuracyRatio
         {
             get
@@ -79,9 +71,7 @@ namespace VRAimLab.Core
         #endregion
 
         #region Initialization
-        /// <summary>
         /// Reset all score data for new game
-        /// </summary>
         public void ResetScore()
         {
             currentScore = 0;
@@ -101,105 +91,101 @@ namespace VRAimLab.Core
         #endregion
 
         #region Scoring Methods
-        /// <summary>
         /// Add score when target is hit
-        /// </summary>
-        /// <param name="baseScore">Base points for this target</param>
-        /// <param name="isPerfectHit">Was this a perfect/headshot hit?</param>
         public void AddScore(int baseScore, bool isPerfectHit = false)
         {
+            // Incrementar contadores de acertos
             successfulHits++;
             currentStreak++;
 
-            // Update max streak
+            // Guardar a melhor streak da sessão
             if (currentStreak > maxStreak)
             {
                 maxStreak = currentStreak;
             }
 
-            // Calculate points
+            // Começar com os pontos base do alvo
             int points = baseScore;
 
-            // Perfect hit bonus
+            // Adicionar bónus se foi bullseye
             if (isPerfectHit)
             {
                 points += perfectHitBonus;
             }
 
-            // Update combo multiplier based on streak
+            // Calcular multiplicador de combo baseado na streak atual
             UpdateComboMultiplier();
 
-            // Apply combo multiplier
+            // Multiplicar pontos pelo combo (x1, x2, x3, x4, x5)
             points *= comboMultiplier;
 
-            // Add to total score
+            // Adicionar ao score total
             currentScore += points;
 
-            // Update rank
+            // Verificar se subimos de rank
             UpdateRank();
 
-            // Emit events
+            // Notificar UI da mudança de streak
             OnStreakChanged?.Invoke(currentStreak);
 
             Debug.Log($"[ScoreSystem] +{points} points (Streak: {currentStreak}, Combo: x{comboMultiplier})");
 
-            // Play combo sound for milestones
+            // Tocar som de combo a cada 5 hits (milestone)
             if (currentStreak % streakThreshold == 0 && AudioManager.Instance != null)
             {
                 AudioManager.Instance.PlayComboSound();
             }
         }
 
-        /// <summary>
         /// Register a missed shot (affects accuracy)
-        /// </summary>
         public void RegisterMiss()
         {
             totalShots++;
-            // Don't break streak on miss, only on target expiry
+            // Nota: falhar um tiro não quebra a streak, só expirar alvo
         }
 
-        /// <summary>
         /// Register a shot fired (for accuracy tracking)
-        /// </summary>
         public void RegisterShot()
         {
             totalShots++;
         }
 
-        /// <summary>
         /// Break current streak (when target expires)
-        /// </summary>
         public void BreakStreak()
         {
             if (currentStreak > 0)
             {
                 Debug.Log($"[ScoreSystem] Streak broken at {currentStreak}");
 
-                // Play streak lost sound
+                // Tocar som de perda de streak
                 if (AudioManager.Instance != null)
                 {
                     AudioManager.Instance.PlayStreakLostSound();
                 }
             }
 
+            // Resetar streak e combo para valores base
             currentStreak = 0;
             comboMultiplier = 1;
 
+            // Atualizar UI
             OnStreakChanged?.Invoke(0);
             OnComboMultiplierChanged?.Invoke(1);
         }
         #endregion
 
         #region Combo System
-        /// <summary>
         /// Update combo multiplier based on current streak
-        /// </summary>
         private void UpdateComboMultiplier()
         {
+            // Fórmula: 1 + (streak / 5)
+            // Exemplo: 7 hits = 1 + (7/5) = 1 + 1 = x2
             int newMultiplier = 1 + (currentStreak / streakThreshold);
+
+            // Limitar ao máximo de x5
             newMultiplier = Mathf.Min(newMultiplier, maxComboMultiplier);
 
+            // Só notificar se o multiplicador mudou
             if (newMultiplier != comboMultiplier)
             {
                 comboMultiplier = newMultiplier;
@@ -211,9 +197,7 @@ namespace VRAimLab.Core
         #endregion
 
         #region Ranking System
-        /// <summary>
         /// Update player rank based on current score and accuracy
-        /// </summary>
         private void UpdateRank()
         {
             Rank newRank = CalculateRank();
@@ -226,44 +210,38 @@ namespace VRAimLab.Core
             }
         }
 
-        /// <summary>
         /// Calculate rank based on score and accuracy
-        /// </summary>
         private Rank CalculateRank()
         {
             float acc = AccuracyRatio;
 
-            // Diamond: 5000+ points, 90%+ accuracy
+            // Diamond: 5000+ pontos E 90%+ accuracy (elite)
             if (currentScore >= 5000 && acc >= 0.9f)
                 return Rank.Diamond;
 
-            // Platinum: 3000+ points, 80%+ accuracy
+            // Platinum: 3000+ pontos E 80%+ accuracy
             if (currentScore >= 3000 && acc >= 0.8f)
                 return Rank.Platinum;
 
-            // Gold: 1500+ points, 70%+ accuracy
+            // Gold: 1500+ pontos E 70%+ accuracy
             if (currentScore >= 1500 && acc >= 0.7f)
                 return Rank.Gold;
 
-            // Silver: 500+ points, 60%+ accuracy
+            // Silver: 500+ pontos E 60%+ accuracy
             if (currentScore >= 500 && acc >= 0.6f)
                 return Rank.Silver;
 
-            // Bronze: default
+            // Bronze: rank inicial (qualquer score/accuracy)
             return Rank.Bronze;
         }
 
-        /// <summary>
         /// Get rank as string
-        /// </summary>
         public string GetRankString()
         {
             return currentRank.ToString();
         }
 
-        /// <summary>
         /// Get rank color for UI
-        /// </summary>
         public Color GetRankColor()
         {
             switch (currentRank)
@@ -285,9 +263,7 @@ namespace VRAimLab.Core
         #endregion
 
         #region Bonus Points
-        /// <summary>
         /// Add bonus points (e.g., from time bonus, special targets)
-        /// </summary>
         public void AddBonusPoints(int points, string reason = "")
         {
             currentScore += points;
@@ -301,17 +277,13 @@ namespace VRAimLab.Core
         #endregion
 
         #region Statistics
-        /// <summary>
         /// Get formatted accuracy string
-        /// </summary>
         public string GetAccuracyString()
         {
             return $"{Accuracy:F1}%";
         }
 
-        /// <summary>
         /// Get score statistics as formatted string
-        /// </summary>
         public string GetStatsString()
         {
             return $"Score: {currentScore}\n" +
@@ -320,9 +292,7 @@ namespace VRAimLab.Core
                    $"Rank: {currentRank}";
         }
 
-        /// <summary>
         /// Check if current performance beats a high score
-        /// </summary>
         public bool IsNewHighScore(int previousHighScore)
         {
             return currentScore > previousHighScore;
@@ -332,7 +302,7 @@ namespace VRAimLab.Core
         #region Debug
         private void OnValidate()
         {
-            // Clamp values in editor
+            // Validar valores no inspector para evitar bugs
             basePoints = Mathf.Max(1, basePoints);
             perfectHitBonus = Mathf.Max(0, perfectHitBonus);
             streakThreshold = Mathf.Max(1, streakThreshold);

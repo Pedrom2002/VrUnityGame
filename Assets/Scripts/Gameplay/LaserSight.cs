@@ -2,10 +2,8 @@ using UnityEngine;
 
 namespace VRAimLab.Gameplay
 {
-    /// <summary>
     /// Enhanced Laser Sight with visual effects
     /// Shows where weapon is aiming with customizable laser beam
-    /// </summary>
     public class LaserSight : MonoBehaviour
     {
         [Header("Laser Settings")]
@@ -71,9 +69,7 @@ namespace VRAimLab.Gameplay
             }
         }
 
-        /// <summary>
         /// Setup line renderer for laser beam
-        /// </summary>
         private void SetupLaser()
         {
             // Create or get LineRenderer
@@ -110,9 +106,7 @@ namespace VRAimLab.Gameplay
             lineRenderer.receiveShadows = false;
         }
 
-        /// <summary>
         /// Setup end dot (point where laser hits)
-        /// </summary>
         private void SetupEndDot()
         {
             if (!showEndDot) return;
@@ -145,9 +139,7 @@ namespace VRAimLab.Gameplay
             endDotRenderer.receiveShadows = false;
         }
 
-        /// <summary>
         /// Update laser position and hit detection
-        /// </summary>
         private void UpdateLaser()
         {
             // Determine laser origin
@@ -190,9 +182,7 @@ namespace VRAimLab.Gameplay
             }
         }
 
-        /// <summary>
         /// Update pulse effect for end dot
-        /// </summary>
         private void UpdatePulse()
         {
             pulseTimer += Time.deltaTime * pulseSpeed;
@@ -210,9 +200,7 @@ namespace VRAimLab.Gameplay
             }
         }
 
-        /// <summary>
         /// Enable or disable laser sight
-        /// </summary>
         public void SetEnabled(bool enabled)
         {
             isEnabled = enabled;
@@ -228,9 +216,7 @@ namespace VRAimLab.Gameplay
             }
         }
 
-        /// <summary>
         /// Change laser color at runtime
-        /// </summary>
         public void SetLaserColor(Color color)
         {
             laserColor = color;
@@ -247,9 +233,7 @@ namespace VRAimLab.Gameplay
             }
         }
 
-        /// <summary>
         /// Change laser width at runtime
-        /// </summary>
         public void SetLaserWidth(float width)
         {
             laserWidth = width;
@@ -261,17 +245,13 @@ namespace VRAimLab.Gameplay
             }
         }
 
-        /// <summary>
         /// Get current hit information
-        /// </summary>
         public RaycastHit GetHitInfo()
         {
             return hitInfo;
         }
 
-        /// <summary>
         /// Check if laser is currently hitting something
-        /// </summary>
         public bool IsHitting()
         {
             return hitInfo.collider != null;

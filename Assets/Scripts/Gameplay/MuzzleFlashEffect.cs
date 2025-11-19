@@ -2,10 +2,8 @@ using UnityEngine;
 
 namespace VRAimLab.Gameplay
 {
-    /// <summary>
     /// Muzzle Flash Effect melhorado com luz e partículas
     /// Anexe este script ao prefab de muzzle flash
-    /// </summary>
     public class MuzzleFlashEffect : MonoBehaviour
     {
         [Header("Flash Settings")]

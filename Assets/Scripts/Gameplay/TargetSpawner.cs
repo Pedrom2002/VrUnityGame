@@ -5,9 +5,7 @@ using VRAimLab.Core;
 
 namespace VRAimLab.Gameplay
 {
-    /// <summary>
     /// Spawn configuration for different game modes
-    /// </summary>
     [System.Serializable]
     public class SpawnConfig
     {
@@ -19,11 +17,9 @@ namespace VRAimLab.Gameplay
         public int basePoints = 100;
     }
 
-    /// <summary>
     /// Target Spawner - handles target spawning with object pooling
     /// Configurable per game mode with difficulty progression
     /// Uses wave system for increasing challenge
-    /// </summary>
     public class TargetSpawner : MonoBehaviour
     {
         #region Inspector Fields
@@ -102,9 +98,7 @@ namespace VRAimLab.Gameplay
         #endregion
 
         #region Initialization
-        /// <summary>
         /// Initialize object pools for targets
-        /// </summary>
         private void InitializePools()
         {
             // Note: If using ObjectPooler component, configure pools in inspector
@@ -121,9 +115,7 @@ namespace VRAimLab.Gameplay
         #endregion
 
         #region Spawning Control
-        /// <summary>
         /// Start spawning targets for a game mode
-        /// </summary>
         public void StartSpawning(GameMode gameMode)
         {
             // Find config for this game mode
@@ -148,9 +140,7 @@ namespace VRAimLab.Gameplay
             Debug.Log($"[TargetSpawner] Started spawning for {gameMode} mode");
         }
 
-        /// <summary>
         /// Stop spawning targets
-        /// </summary>
         public void StopSpawning()
         {
             isSpawning = false;
@@ -158,17 +148,13 @@ namespace VRAimLab.Gameplay
             Debug.Log("[TargetSpawner] Stopped spawning");
         }
 
-        /// <summary>
         /// Pause spawning (keeps current targets active)
-        /// </summary>
         public void PauseSpawning()
         {
             isSpawning = false;
         }
 
-        /// <summary>
         /// Resume spawning
-        /// </summary>
         public void ResumeSpawning()
         {
             isSpawning = true;
@@ -176,9 +162,7 @@ namespace VRAimLab.Gameplay
         #endregion
 
         #region Spawn Update
-        /// <summary>
         /// Update spawning logic each frame
-        /// </summary>
         private void UpdateSpawning()
         {
             spawnTimer += Time.deltaTime;
@@ -194,9 +178,7 @@ namespace VRAimLab.Gameplay
             }
         }
 
-        /// <summary>
         /// Spawn a single target
-        /// </summary>
         private void SpawnTarget()
         {
             if (currentConfig == null) return;
@@ -248,9 +230,7 @@ namespace VRAimLab.Gameplay
         #endregion
 
         #region Difficulty Progression
-        /// <summary>
         /// Increase difficulty level
-        /// </summary>
         public void IncreaseDifficulty(int level)
         {
             if (!enableProgression) return;
@@ -269,9 +249,7 @@ namespace VRAimLab.Gameplay
         #endregion
 
         #region Target Management
-        /// <summary>
         /// Clear all active targets
-        /// </summary>
         public void ClearAllTargets()
         {
             foreach (Target target in activeTargets)
@@ -285,9 +263,7 @@ namespace VRAimLab.Gameplay
             activeTargets.Clear();
         }
 
-        /// <summary>
         /// Get count of active targets of a specific type
-        /// </summary>
         public int GetActiveTargetCount(TargetType type)
         {
             int count = 0;
@@ -301,9 +277,7 @@ namespace VRAimLab.Gameplay
         #endregion
 
         #region Spawn Configuration
-        /// <summary>
         /// Get spawn config for game mode
-        /// </summary>
         private SpawnConfig GetConfigForMode(GameMode mode)
         {
             foreach (SpawnConfig config in gameModeConfigs)
@@ -316,9 +290,7 @@ namespace VRAimLab.Gameplay
             return CreateDefaultConfig(mode);
         }
 
-        /// <summary>
         /// Create default spawn config for a game mode
-        /// </summary>
         private SpawnConfig CreateDefaultConfig(GameMode mode)
         {
             SpawnConfig config = new SpawnConfig
@@ -368,9 +340,7 @@ namespace VRAimLab.Gameplay
             return config;
         }
 
-        /// <summary>
         /// Get random target type from allowed types
-        /// </summary>
         private TargetType GetRandomTargetType()
         {
             if (currentConfig.allowedTargetTypes == null || currentConfig.allowedTargetTypes.Length == 0)
@@ -381,9 +351,7 @@ namespace VRAimLab.Gameplay
             return currentConfig.allowedTargetTypes[Random.Range(0, currentConfig.allowedTargetTypes.Length)];
         }
 
-        /// <summary>
         /// Get pool tag for target type
-        /// </summary>
         private string GetPoolTagForType(TargetType type)
         {
             switch (type)
@@ -397,9 +365,7 @@ namespace VRAimLab.Gameplay
             }
         }
 
-        /// <summary>
         /// Get prefab for target type (fallback if no pooler)
-        /// </summary>
         private GameObject GetPrefabForType(TargetType type)
         {
             switch (type)
@@ -415,9 +381,7 @@ namespace VRAimLab.Gameplay
         #endregion
 
         #region Spawn Position
-        /// <summary>
         /// Get spawn position (either fixed point or random)
-        /// </summary>
         private Vector3 GetSpawnPosition()
         {
             if (useRandomPositions || spawnPoints == null || spawnPoints.Length == 0)
@@ -430,10 +394,8 @@ namespace VRAimLab.Gameplay
             }
         }
 
-        /// <summary>
         /// Get random position within spawn area (relative to camera)
         /// Uses same logic as manual spawn (T, Y, U keys) - spawns in front of camera
-        /// </summary>
         private Vector3 GetRandomSpawnPosition()
         {
             // Get camera reference
@@ -454,9 +416,7 @@ namespace VRAimLab.Gameplay
             return spawnPosition;
         }
 
-        /// <summary>
         /// Get fixed spawn point position
-        /// </summary>
         private Vector3 GetFixedSpawnPosition()
         {
             Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
@@ -492,9 +452,7 @@ namespace VRAimLab.Gameplay
         }
 #endif
 
-        /// <summary>
         /// Print spawner statistics
-        /// </summary>
         public void PrintStats()
         {
             Debug.Log($"[TargetSpawner] Stats: Active={activeTargets.Count}/{currentMaxTargets}, " +

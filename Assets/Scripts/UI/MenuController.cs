@@ -5,10 +5,8 @@ using VRAimLab.Core;
 
 namespace VRAimLab.UI
 {
-    /// <summary>
     /// Menu Controller - handles main menu UI and game mode selection
     /// Displays high scores and settings
-    /// </summary>
     public class MenuController : MonoBehaviour
     {
         #region Inspector Fields
@@ -63,9 +61,7 @@ namespace VRAimLab.UI
         #endregion
 
         #region Setup
-        /// <summary>
         /// Setup button click listeners
-        /// </summary>
         private void SetupButtonListeners()
         {
             // Mode selection buttons
@@ -95,9 +91,7 @@ namespace VRAimLab.UI
                 quitButton.onClick.AddListener(OnQuitButtonPressed);
         }
 
-        /// <summary>
         /// Setup volume sliders
-        /// </summary>
         private void SetupVolumeSliders()
         {
             if (AudioManager.Instance == null) return;
@@ -123,9 +117,7 @@ namespace VRAimLab.UI
         #endregion
 
         #region Game Mode Selection
-        /// <summary>
         /// Select a game mode and update UI
-        /// </summary>
         public void SelectGameMode(GameMode mode)
         {
             selectedGameMode = mode;
@@ -139,9 +131,7 @@ namespace VRAimLab.UI
             }
         }
 
-        /// <summary>
         /// Update mode information display
-        /// </summary>
         private void UpdateModeInfo(GameMode mode)
         {
             string modeName = "";
@@ -185,9 +175,7 @@ namespace VRAimLab.UI
             UpdateHighScoreDisplay(mode);
         }
 
-        /// <summary>
         /// Update high score display for selected mode
-        /// </summary>
         private void UpdateHighScoreDisplay(GameMode mode)
         {
             if (GameManager.Instance == null) return;
@@ -220,9 +208,7 @@ namespace VRAimLab.UI
             }
         }
 
-        /// <summary>
         /// Highlight selected mode button
-        /// </summary>
         private void UpdateButtonHighlights(GameMode mode)
         {
             // Reset all buttons to normal color
@@ -240,9 +226,7 @@ namespace VRAimLab.UI
             }
         }
 
-        /// <summary>
         /// Get button for a game mode
-        /// </summary>
         private Button GetButtonForMode(GameMode mode)
         {
             switch (mode)
@@ -256,9 +240,7 @@ namespace VRAimLab.UI
             }
         }
 
-        /// <summary>
         /// Highlight button
-        /// </summary>
         private void HighlightButton(Button button)
         {
             if (button == null) return;
@@ -268,9 +250,7 @@ namespace VRAimLab.UI
             button.colors = colors;
         }
 
-        /// <summary>
         /// Reset button to normal color
-        /// </summary>
         private void ResetButtonColor(Button button)
         {
             if (button == null) return;
@@ -282,9 +262,7 @@ namespace VRAimLab.UI
         #endregion
 
         #region Button Callbacks
-        /// <summary>
         /// Start button pressed - begin selected game mode
-        /// </summary>
         private void OnStartButtonPressed()
         {
             if (GameManager.Instance != null)
@@ -299,9 +277,7 @@ namespace VRAimLab.UI
             }
         }
 
-        /// <summary>
         /// Settings button pressed - toggle settings panel
-        /// </summary>
         private void OnSettingsButtonPressed()
         {
             if (settingsPanel != null)
@@ -315,9 +291,7 @@ namespace VRAimLab.UI
             }
         }
 
-        /// <summary>
         /// Quit button pressed - exit application
-        /// </summary>
         private void OnQuitButtonPressed()
         {
             if (AudioManager.Instance != null)
@@ -336,9 +310,7 @@ namespace VRAimLab.UI
         #endregion
 
         #region Settings Callbacks
-        /// <summary>
         /// Master volume slider changed
-        /// </summary>
         private void OnMasterVolumeChanged(float value)
         {
             if (AudioManager.Instance != null)
@@ -347,9 +319,7 @@ namespace VRAimLab.UI
             }
         }
 
-        /// <summary>
         /// Music volume slider changed
-        /// </summary>
         private void OnMusicVolumeChanged(float value)
         {
             if (AudioManager.Instance != null)
@@ -358,9 +328,7 @@ namespace VRAimLab.UI
             }
         }
 
-        /// <summary>
         /// SFX volume slider changed
-        /// </summary>
         private void OnSFXVolumeChanged(float value)
         {
             if (AudioManager.Instance != null)
@@ -369,9 +337,7 @@ namespace VRAimLab.UI
             }
         }
 
-        /// <summary>
         /// Laser sight toggle changed
-        /// </summary>
         public void OnLaserSightToggled(bool enabled)
         {
             // TODO: Update all weapon controllers
@@ -381,9 +347,7 @@ namespace VRAimLab.UI
         #endregion
 
         #region Public Methods
-        /// <summary>
         /// Refresh UI elements
-        /// </summary>
         public void RefreshUI()
         {
             UpdateModeInfo(selectedGameMode);
@@ -396,9 +360,7 @@ namespace VRAimLab.UI
             }
         }
 
-        /// <summary>
         /// Get currently selected game mode
-        /// </summary>
         public GameMode GetSelectedGameMode()
         {
             return selectedGameMode;

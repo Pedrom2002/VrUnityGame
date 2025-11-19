@@ -2,10 +2,8 @@ using UnityEngine;
 using UnityEngine.XR;
 using Unity.XR.CoreUtils;
 
-/// <summary>
 /// Script simples para movimento VR usando thumbsticks
 /// Anexe este script ao XR Origin para movimento básico funcionar
-/// </summary>
 [RequireComponent(typeof(CharacterController))]
 public class SimpleVRMovement : MonoBehaviour
 {

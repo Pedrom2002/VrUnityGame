@@ -2,9 +2,7 @@ using UnityEngine;
 
 namespace VRAimLab.Gameplay
 {
-    /// <summary>
     /// Movement patterns for moving targets
-    /// </summary>
     public enum MovementPattern
     {
         Linear,     // Straight line movement
@@ -15,10 +13,8 @@ namespace VRAimLab.Gameplay
         Bounce      // Bounce between points
     }
 
-    /// <summary>
     /// Moving Target - extends base Target with movement capabilities
     /// Supports 6 different movement patterns
-    /// </summary>
     public class MovingTarget : Target
     {
         #region Inspector Fields
@@ -89,9 +85,7 @@ namespace VRAimLab.Gameplay
         #endregion
 
         #region Initialization
-        /// <summary>
         /// Initialize movement parameters
-        /// </summary>
         private void InitializeMovement()
         {
             startPosition = transform.position;
@@ -114,9 +108,7 @@ namespace VRAimLab.Gameplay
             }
         }
 
-        /// <summary>
         /// Reset target and movement
-        /// </summary>
         public override void ResetTarget()
         {
             base.ResetTarget();
@@ -125,9 +117,7 @@ namespace VRAimLab.Gameplay
         #endregion
 
         #region Movement Update
-        /// <summary>
         /// Update target movement based on pattern
-        /// </summary>
         private void UpdateMovement()
         {
             movementTimer += Time.deltaTime;
@@ -162,18 +152,14 @@ namespace VRAimLab.Gameplay
         #endregion
 
         #region Movement Patterns
-        /// <summary>
         /// Linear movement in one direction
-        /// </summary>
         private void UpdateLinearMovement()
         {
             transform.Translate(currentDirection * moveSpeed * Time.deltaTime, Space.World);
             transform.position = ClampToGround(transform.position);
         }
 
-        /// <summary>
         /// Circular movement around a center point
-        /// </summary>
         private void UpdateCircularMovement()
         {
             float angleSpeed = moveSpeed / circleRadius;
@@ -187,9 +173,7 @@ namespace VRAimLab.Gameplay
             transform.position = ClampToGround(newPosition);
         }
 
-        /// <summary>
         /// Zigzag movement pattern
-        /// </summary>
         private void UpdateZigzagMovement()
         {
             float zigzagOffset = Mathf.Sin(movementTimer * zigzagFrequency) * zigzagAmplitude;
@@ -201,9 +185,7 @@ namespace VRAimLab.Gameplay
             transform.position = ClampToGround(transform.position);
         }
 
-        /// <summary>
         /// Random movement with direction changes
-        /// </summary>
         private void UpdateRandomMovement()
         {
             directionChangeTimer += Time.deltaTime;
@@ -235,9 +217,7 @@ namespace VRAimLab.Gameplay
                 currentDirection.z *= -1f;
         }
 
-        /// <summary>
         /// Figure-8 movement pattern
-        /// </summary>
         private void UpdateFigure8Movement()
         {
             float t = movementTimer * moveSpeed * 0.5f;
@@ -250,9 +230,7 @@ namespace VRAimLab.Gameplay
             transform.position = ClampToGround(newPosition);
         }
 
-        /// <summary>
         /// Bounce between predefined points
-        /// </summary>
         private void UpdateBounceMovement()
         {
             if (bouncePoints == null || bouncePoints.Length < 2)
@@ -277,9 +255,7 @@ namespace VRAimLab.Gameplay
         #endregion
 
         #region Helper Methods
-        /// <summary>
         /// Clamp position to prevent going underground
-        /// </summary>
         private Vector3 ClampToGround(Vector3 position)
         {
             if (enforceGroundLimit && position.y < minHeight)
@@ -289,9 +265,7 @@ namespace VRAimLab.Gameplay
             return position;
         }
 
-        /// <summary>
         /// Generate a new random direction
-        /// </summary>
         private void GenerateRandomDirection()
         {
             currentDirection = new Vector3(
@@ -301,34 +275,26 @@ namespace VRAimLab.Gameplay
             ).normalized;
         }
 
-        /// <summary>
         /// Change movement pattern at runtime
-        /// </summary>
         public void SetMovementPattern(MovementPattern pattern)
         {
             movementPattern = pattern;
             InitializeMovement();
         }
 
-        /// <summary>
         /// Change movement speed at runtime
-        /// </summary>
         public void SetMoveSpeed(float speed)
         {
             moveSpeed = speed;
         }
 
-        /// <summary>
         /// Set circle center for circular movement
-        /// </summary>
         public void SetCircleCenter(Vector3 center)
         {
             circleCenter = center;
         }
 
-        /// <summary>
         /// Set bounce points for bounce movement
-        /// </summary>
         public void SetBouncePoints(Transform[] points)
         {
             bouncePoints = points;

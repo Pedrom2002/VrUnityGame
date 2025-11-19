@@ -4,10 +4,8 @@ using UnityEngine;
 
 namespace VRAimLab.Core
 {
-    /// <summary>
     /// Audio manager - handles all game audio (music, SFX, UI, voice)
     /// Singleton pattern with spatial 3D audio support for VR
-    /// </summary>
     public class AudioManager : MonoBehaviour
     {
         #region Singleton
@@ -134,9 +132,7 @@ namespace VRAimLab.Core
         #endregion
 
         #region Initialization
-        /// <summary>
         /// Initialize all audio sources with proper settings
-        /// </summary>
         private void InitializeAudioSources()
         {
             // Music source (2D, looping)
@@ -225,9 +221,7 @@ namespace VRAimLab.Core
         #endregion
 
         #region Music Methods
-        /// <summary>
         /// Play music with optional fade in
-        /// </summary>
         public void PlayMusic(AudioClip clip, bool fadeIn = true, float fadeDuration = 1f)
         {
             if (clip == null) return;
@@ -247,9 +241,7 @@ namespace VRAimLab.Core
             }
         }
 
-        /// <summary>
         /// Stop music with optional fade out
-        /// </summary>
         public void StopMusic(bool fadeOut = true, float fadeDuration = 1f)
         {
             if (fadeOut)
@@ -262,17 +254,13 @@ namespace VRAimLab.Core
             }
         }
 
-        /// <summary>
         /// Play menu music
-        /// </summary>
         public void PlayMenuMusic()
         {
             PlayMusic(menuMusic);
         }
 
-        /// <summary>
         /// Play gameplay music
-        /// </summary>
         public void PlayGameplayMusic()
         {
             PlayMusic(gameplayMusic);
@@ -327,25 +315,19 @@ namespace VRAimLab.Core
         #endregion
 
         #region SFX Methods - Shooting
-        /// <summary>
         /// Play weapon shoot sound at position (3D spatial)
-        /// </summary>
         public void PlayShootSound(Vector3 position)
         {
             PlaySoundAtPosition(shootSound, position);
         }
 
-        /// <summary>
         /// Play reload sound
-        /// </summary>
         public void PlayReloadSound()
         {
             PlaySFX(reloadSound);
         }
 
-        /// <summary>
         /// Play empty gun sound
-        /// </summary>
         public void PlayEmptyGunSound()
         {
             PlaySFX(emptyGunSound);
@@ -353,35 +335,27 @@ namespace VRAimLab.Core
         #endregion
 
         #region SFX Methods - Targets
-        /// <summary>
         /// Play hit sound with perfect hit variation
-        /// </summary>
         public void PlayHitSound(bool isPerfect = false)
         {
             AudioClip clip = isPerfect ? perfectHitSound : targetHitSound;
             PlaySFX(clip);
         }
 
-        /// <summary>
         /// Play target hit sound at position (3D)
-        /// </summary>
         public void PlayTargetHitSound(Vector3 position, bool isPerfect = false)
         {
             AudioClip clip = isPerfect ? perfectHitSound : targetHitSound;
             PlaySoundAtPosition(clip, position);
         }
 
-        /// <summary>
         /// Play miss sound
-        /// </summary>
         public void PlayMissSound()
         {
             PlaySFX(targetMissSound);
         }
 
-        /// <summary>
         /// Play target spawn sound at position
-        /// </summary>
         public void PlayTargetSpawnSound(Vector3 position)
         {
             PlaySoundAtPosition(targetSpawnSound, position);
@@ -389,25 +363,19 @@ namespace VRAimLab.Core
         #endregion
 
         #region SFX Methods - Combos
-        /// <summary>
         /// Play combo sound
-        /// </summary>
         public void PlayComboSound()
         {
             PlaySFX(comboSound);
         }
 
-        /// <summary>
         /// Play streak sound
-        /// </summary>
         public void PlayStreakSound()
         {
             PlaySFX(streakSound);
         }
 
-        /// <summary>
         /// Play streak lost sound
-        /// </summary>
         public void PlayStreakLostSound()
         {
             PlaySFX(streakLostSound);
@@ -415,25 +383,19 @@ namespace VRAimLab.Core
         #endregion
 
         #region UI Sound Methods
-        /// <summary>
         /// Play button click sound
-        /// </summary>
         public void PlayButtonClick()
         {
             PlayUI(buttonClickSound);
         }
 
-        /// <summary>
         /// Play button hover sound
-        /// </summary>
         public void PlayButtonHover()
         {
             PlayUI(buttonHoverSound);
         }
 
-        /// <summary>
         /// Play mode select sound
-        /// </summary>
         public void PlayModeSelect()
         {
             PlayUI(modeSelectSound);
@@ -441,17 +403,13 @@ namespace VRAimLab.Core
         #endregion
 
         #region Voice Methods
-        /// <summary>
         /// Play ARIA welcome voice
-        /// </summary>
         public void PlayWelcomeVoice()
         {
             PlayVoice(welcomeVoice);
         }
 
-        /// <summary>
         /// Play encouragement voice based on performance
-        /// </summary>
         public void PlayEncouragementVoice(float accuracy)
         {
             if (accuracy >= 0.9f)
@@ -464,9 +422,7 @@ namespace VRAimLab.Core
             }
         }
 
-        /// <summary>
         /// Play game over voice
-        /// </summary>
         public void PlayGameOverVoice()
         {
             PlayVoice(gameOverVoice);
@@ -507,25 +463,19 @@ namespace VRAimLab.Core
         #endregion
 
         #region Public Utility Methods
-        /// <summary>
         /// Mute/unmute all audio
-        /// </summary>
         public void SetMute(bool muted)
         {
             AudioListener.volume = muted ? 0f : 1f;
         }
 
-        /// <summary>
         /// Check if any voice is currently playing
-        /// </summary>
         public bool IsVoicePlaying()
         {
             return voiceSource != null && voiceSource.isPlaying;
         }
 
-        /// <summary>
         /// Stop all sounds immediately
-        /// </summary>
         public void StopAllSounds()
         {
             musicSource?.Stop();

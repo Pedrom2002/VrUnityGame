@@ -10,10 +10,8 @@ using VRAimLab.Gameplay;
 
 namespace VRAimLab.Utilities
 {
-    /// <summary>
     /// Debug Helper - provides keyboard shortcuts and testing utilities
     /// Allows testing without VR headset using keyboard/mouse
-    /// </summary>
     public class DebugHelper : MonoBehaviour
     {
         #region Inspector Fields
@@ -77,11 +75,9 @@ namespace VRAimLab.Utilities
         #endregion
 
         #region Keyboard Shortcuts
-        /// <summary>
         /// Handle keyboard shortcuts for testing
         /// NOTE: Requires Legacy Input enabled in Player Settings
         /// Edit → Project Settings → Player → Active Input Handling → set to "Both"
-        /// </summary>
         private void HandleKeyboardShortcuts()
         {
             if (!allowKeyboardControls) return;
@@ -194,9 +190,7 @@ namespace VRAimLab.Utilities
             */
         }
 
-        /// <summary>
         /// Start game with specified mode
-        /// </summary>
         private void StartGameMode(GameMode mode)
         {
             if (GameManager.Instance != null)
@@ -206,9 +200,7 @@ namespace VRAimLab.Utilities
             }
         }
 
-        /// <summary>
         /// Toggle pause
-        /// </summary>
         private void TogglePause()
         {
             if (GameManager.Instance != null)
@@ -226,9 +218,7 @@ namespace VRAimLab.Utilities
             }
         }
 
-        /// <summary>
         /// Restart current game
-        /// </summary>
         private void RestartGame()
         {
             if (GameManager.Instance != null)
@@ -238,9 +228,7 @@ namespace VRAimLab.Utilities
             }
         }
 
-        /// <summary>
         /// Return to menu
-        /// </summary>
         private void ReturnToMenu()
         {
             if (GameManager.Instance != null)
@@ -252,10 +240,7 @@ namespace VRAimLab.Utilities
         #endregion
 
         #region Debug Actions
-        /// <summary>
         /// Spawn a debug target at camera position
-        /// </summary>
-        /// <param name="targetType">Type of target to spawn (BasicTarget, MovingTarget, PrecisionTarget)</param>
         private void SpawnDebugTarget(string targetType = "BasicTarget")
         {
             TargetSpawner spawner = FindFirstObjectByType<TargetSpawner>();
@@ -279,9 +264,7 @@ namespace VRAimLab.Utilities
             }
         }
 
-        /// <summary>
         /// Kill all active targets
-        /// </summary>
         private void KillAllTargets()
         {
             Target[] targets = FindObjectsByType<Target>(FindObjectsSortMode.None);
@@ -292,9 +275,7 @@ namespace VRAimLab.Utilities
             Debug.Log($"[Debug] Killed {targets.Length} targets");
         }
 
-        /// <summary>
         /// Add debug score
-        /// </summary>
         private void AddDebugScore(int points)
         {
             if (GameManager.Instance != null && GameManager.Instance.Score != null)
@@ -304,9 +285,7 @@ namespace VRAimLab.Utilities
             }
         }
 
-        /// <summary>
         /// Test mouse shooting (raycast from camera)
-        /// </summary>
         private void TestMouseShoot()
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -330,9 +309,7 @@ namespace VRAimLab.Utilities
             }
         }
 
-        /// <summary>
         /// Print game statistics
-        /// </summary>
         private void PrintStats()
         {
             Debug.Log("========================================");
@@ -373,9 +350,7 @@ namespace VRAimLab.Utilities
             Debug.Log("========================================");
         }
 
-        /// <summary>
         /// Toggle debug UI
-        /// </summary>
         private void ToggleDebugUI()
         {
             showDebugUI = !showDebugUI;
@@ -384,9 +359,7 @@ namespace VRAimLab.Utilities
         #endregion
 
         #region Performance Monitoring
-        /// <summary>
         /// Update performance metrics
-        /// </summary>
         private void UpdatePerformanceMonitoring()
         {
             if (!showFPS) return;
@@ -408,9 +381,7 @@ namespace VRAimLab.Utilities
             }
         }
 
-        /// <summary>
         /// Draw debug information on screen
-        /// </summary>
         private void DrawDebugInfo()
         {
             if (!showDebugUI) return;
@@ -464,9 +435,7 @@ namespace VRAimLab.Utilities
         #endregion
 
         #region Context Menu Items
-        /// <summary>
         /// Print all keyboard shortcuts
-        /// </summary>
         [ContextMenu("Print Keyboard Shortcuts")]
         public void PrintKeyboardShortcuts()
         {
@@ -497,9 +466,7 @@ namespace VRAimLab.Utilities
             Debug.Log("========================================");
         }
 
-        /// <summary>
         /// Enable debug mode
-        /// </summary>
         [ContextMenu("Enable Debug Mode")]
         public void EnableDebugMode()
         {
@@ -509,9 +476,7 @@ namespace VRAimLab.Utilities
             Debug.Log("[Debug] Debug mode enabled");
         }
 
-        /// <summary>
         /// Disable debug mode
-        /// </summary>
         [ContextMenu("Disable Debug Mode")]
         public void DisableDebugMode()
         {

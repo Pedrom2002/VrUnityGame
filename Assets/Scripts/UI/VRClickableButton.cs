@@ -4,12 +4,10 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 namespace VRAimLab.UI
 {
-    /// <summary>
     /// Botão clicável em VR - pode ser acionado por:
     /// 1. Raycasting do controller (apontar e apertar trigger)
     /// 2. Tiro da arma (atirar no botão)
     /// 3. Click do mouse (para desktop/editor)
-    /// </summary>
     [RequireComponent(typeof(Collider))]
     public class VRClickableButton : MonoBehaviour
     {
@@ -51,9 +49,7 @@ namespace VRAimLab.UI
             }
         }
 
-        /// <summary>
         /// Detecta quando bala/raycast atinge o botão
-        /// </summary>
         void OnTriggerEnter(Collider other)
         {
             if (!canBeShot) return;
@@ -66,9 +62,7 @@ namespace VRAimLab.UI
             }
         }
 
-        /// <summary>
         /// Chamado quando botão é clicado (qualquer método)
-        /// </summary>
         public void Click()
         {
             // Verificar cooldown
@@ -98,9 +92,7 @@ namespace VRAimLab.UI
             onButtonClicked?.Invoke();
         }
 
-        /// <summary>
         /// Flash de cor quando clicado
-        /// </summary>
         private System.Collections.IEnumerator FlashColor(Color flashColor)
         {
             if (buttonMaterial == null) yield break;
@@ -113,9 +105,7 @@ namespace VRAimLab.UI
             buttonMaterial.color = normalColor;
         }
 
-        /// <summary>
         /// Detectar hover do mouse (para desktop)
-        /// </summary>
         void OnMouseEnter()
         {
             if (buttonRenderer != null && buttonMaterial != null)
@@ -132,17 +122,13 @@ namespace VRAimLab.UI
             }
         }
 
-        /// <summary>
         /// Click do mouse (para desktop)
-        /// </summary>
         void OnMouseDown()
         {
             Click();
         }
 
-        /// <summary>
         /// Adicionar listener programaticamente
-        /// </summary>
         public void AddListener(UnityAction action)
         {
             onButtonClicked.AddListener(action);

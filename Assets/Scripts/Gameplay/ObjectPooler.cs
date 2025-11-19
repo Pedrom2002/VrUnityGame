@@ -3,9 +3,7 @@ using UnityEngine;
 
 namespace VRAimLab.Gameplay
 {
-    /// <summary>
     /// Object pool for a specific prefab
-    /// </summary>
     [System.Serializable]
     public class Pool
     {
@@ -14,11 +12,9 @@ namespace VRAimLab.Gameplay
         public int size;
     }
 
-    /// <summary>
     /// Generic object pooler - optimizes performance by reusing GameObjects
     /// Prevents expensive Instantiate/Destroy calls during gameplay
     /// Essential for VR 90fps target
-    /// </summary>
     public class ObjectPooler : MonoBehaviour
     {
         #region Singleton
@@ -53,9 +49,7 @@ namespace VRAimLab.Gameplay
             InitializePools();
         }
 
-        /// <summary>
         /// Initialize all pools at start
-        /// </summary>
         private void InitializePools()
         {
             poolDictionary = new Dictionary<string, Queue<GameObject>>();
@@ -85,9 +79,7 @@ namespace VRAimLab.Gameplay
             }
         }
 
-        /// <summary>
         /// Create a pooled object instance
-        /// </summary>
         private GameObject CreatePooledObject(GameObject prefab, string poolTag, int index = -1)
         {
             GameObject obj = Instantiate(prefab);
@@ -114,12 +106,7 @@ namespace VRAimLab.Gameplay
         #endregion
 
         #region Pool Management
-        /// <summary>
         /// Spawn object from pool at position and rotation
-        /// </summary>
-        /// <param name="tag">Pool tag</param>
-        /// <param name="position">Spawn position</param>
-        /// <param name="rotation">Spawn rotation</param>
         /// <returns>Spawned GameObject</returns>
         public GameObject SpawnFromPool(string tag, Vector3 position, Quaternion rotation)
         {
@@ -166,11 +153,7 @@ namespace VRAimLab.Gameplay
             return objectToSpawn;
         }
 
-        /// <summary>
         /// Return object to pool
-        /// </summary>
-        /// <param name="tag">Pool tag</param>
-        /// <param name="obj">Object to return</param>
         public void ReturnToPool(string tag, GameObject obj)
         {
             if (!poolDictionary.ContainsKey(tag))
@@ -195,10 +178,8 @@ namespace VRAimLab.Gameplay
             poolDictionary[tag].Enqueue(obj);
         }
 
-        /// <summary>
         /// Automatically return object to pool (disables GameObject)
         /// Object will be automatically returned based on its name
-        /// </summary>
         public void ReturnToPool(GameObject obj)
         {
             // Try to find which pool this object belongs to based on name
@@ -215,9 +196,7 @@ namespace VRAimLab.Gameplay
             }
         }
 
-        /// <summary>
         /// Get pool tag from object name
-        /// </summary>
         private string GetPoolTagFromName(string objectName)
         {
             foreach (string tag in poolDictionary.Keys)
@@ -232,17 +211,13 @@ namespace VRAimLab.Gameplay
         #endregion
 
         #region Pool Queries
-        /// <summary>
         /// Check if pool exists
-        /// </summary>
         public bool PoolExists(string tag)
         {
             return poolDictionary.ContainsKey(tag);
         }
 
-        /// <summary>
         /// Get current available count in pool
-        /// </summary>
         public int GetAvailableCount(string tag)
         {
             if (!poolDictionary.ContainsKey(tag))
@@ -251,9 +226,7 @@ namespace VRAimLab.Gameplay
             return poolDictionary[tag].Count;
         }
 
-        /// <summary>
         /// Get total pool size (includes active objects)
-        /// </summary>
         public int GetPoolSize(string tag)
         {
             if (!poolDictionary.ContainsKey(tag))
@@ -269,9 +242,7 @@ namespace VRAimLab.Gameplay
             return count;
         }
 
-        /// <summary>
         /// Get count of active objects from pool
-        /// </summary>
         public int GetActiveCount(string tag)
         {
             return GetPoolSize(tag) - GetAvailableCount(tag);
@@ -279,9 +250,7 @@ namespace VRAimLab.Gameplay
         #endregion
 
         #region Utility Methods
-        /// <summary>
         /// Return all active objects from a pool
-        /// </summary>
         public void ReturnAllToPool(string tag)
         {
             if (!poolDictionary.ContainsKey(tag))
@@ -306,9 +275,7 @@ namespace VRAimLab.Gameplay
             Debug.Log($"[ObjectPooler] Returned {returnedCount} objects to pool '{tag}'");
         }
 
-        /// <summary>
         /// Clear and rebuild a pool
-        /// </summary>
         public void RebuildPool(string tag, int newSize)
         {
             if (!poolDictionary.ContainsKey(tag))
@@ -338,10 +305,8 @@ namespace VRAimLab.Gameplay
             Debug.Log($"[ObjectPooler] Rebuilt pool '{tag}' with {newSize} objects");
         }
 
-        /// <summary>
         /// Warm up pool by activating/deactivating all objects
         /// Helps prevent first-frame hitches
-        /// </summary>
         public void WarmUpPool(string tag)
         {
             if (!poolDictionary.ContainsKey(tag))
@@ -361,9 +326,7 @@ namespace VRAimLab.Gameplay
             Debug.Log($"[ObjectPooler] Warmed up pool '{tag}'");
         }
 
-        /// <summary>
         /// Warm up all pools
-        /// </summary>
         public void WarmUpAllPools()
         {
             foreach (string tag in poolDictionary.Keys)
@@ -374,9 +337,7 @@ namespace VRAimLab.Gameplay
         #endregion
 
         #region Debug
-        /// <summary>
         /// Print pool statistics
-        /// </summary>
         public void PrintPoolStats()
         {
             Debug.Log("===== Object Pool Statistics =====");
@@ -392,10 +353,8 @@ namespace VRAimLab.Gameplay
         #endregion
     }
 
-    /// <summary>
     /// Interface for pooled objects to implement
     /// Allows objects to reset themselves when spawned from pool
-    /// </summary>
     public interface IPooledObject
     {
         void OnObjectSpawn();

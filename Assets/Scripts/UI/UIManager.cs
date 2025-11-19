@@ -4,10 +4,8 @@ using VRAimLab.Core;
 
 namespace VRAimLab.UI
 {
-    /// <summary>
     /// UI Manager - manages all UI panels and updates for VR
     /// Handles world space canvas UI for VR compatibility
-    /// </summary>
     public class UIManager : MonoBehaviour
     {
         #region Inspector Fields
@@ -80,9 +78,7 @@ namespace VRAimLab.UI
         #endregion
 
         #region Canvas Configuration
-        /// <summary>
         /// Configure canvas for VR (World Space)
-        /// </summary>
         private void ConfigureCanvasForVR()
         {
             if (mainCanvas == null) return;
@@ -101,9 +97,7 @@ namespace VRAimLab.UI
             transform.localScale = Vector3.one * 0.001f;
         }
 
-        /// <summary>
         /// Update canvas position to face camera (call if camera moves)
-        /// </summary>
         public void UpdateCanvasPosition()
         {
             if (Camera.main != null)
@@ -115,9 +109,7 @@ namespace VRAimLab.UI
         #endregion
 
         #region Panel Management
-        /// <summary>
         /// Show specific panel, hide others
-        /// </summary>
         private void ShowPanel(GameObject panelToShow)
         {
             if (mainMenuPanel != null)
@@ -133,9 +125,7 @@ namespace VRAimLab.UI
                 gameOverPanel.SetActive(panelToShow == gameOverPanel);
         }
 
-        /// <summary>
         /// Show main menu
-        /// </summary>
         public void ShowMainMenu()
         {
             ShowPanel(mainMenuPanel);
@@ -144,9 +134,7 @@ namespace VRAimLab.UI
                 menuController.RefreshUI();
         }
 
-        /// <summary>
         /// Show gameplay HUD
-        /// </summary>
         public void ShowGameplayHUD()
         {
             ShowPanel(gameplayHUDPanel);
@@ -155,17 +143,13 @@ namespace VRAimLab.UI
                 hudController.ResetHUD();
         }
 
-        /// <summary>
         /// Show pause menu
-        /// </summary>
         public void ShowPauseMenu()
         {
             ShowPanel(pauseMenuPanel);
         }
 
-        /// <summary>
         /// Show game over screen
-        /// </summary>
         public void ShowGameOver()
         {
             ShowPanel(gameOverPanel);
@@ -174,9 +158,7 @@ namespace VRAimLab.UI
         #endregion
 
         #region Game Event Handlers
-        /// <summary>
         /// Handle game state changes
-        /// </summary>
         public void OnGameStateChanged(GameState newState)
         {
             currentState = newState;
@@ -201,9 +183,7 @@ namespace VRAimLab.UI
             }
         }
 
-        /// <summary>
         /// Handle score changes
-        /// </summary>
         private void OnScoreChanged(int newScore)
         {
             if (hudController != null)
@@ -212,9 +192,7 @@ namespace VRAimLab.UI
             }
         }
 
-        /// <summary>
         /// Handle timer updates
-        /// </summary>
         private void OnTimerUpdated(float timeRemaining)
         {
             if (hudController != null)
@@ -223,9 +201,7 @@ namespace VRAimLab.UI
             }
         }
 
-        /// <summary>
         /// Handle streak changes
-        /// </summary>
         private void OnStreakChanged(int streak)
         {
             if (hudController != null)
@@ -234,9 +210,7 @@ namespace VRAimLab.UI
             }
         }
 
-        /// <summary>
         /// Handle combo multiplier changes
-        /// </summary>
         private void OnComboChanged(int multiplier)
         {
             if (hudController != null)
@@ -245,9 +219,7 @@ namespace VRAimLab.UI
             }
         }
 
-        /// <summary>
         /// Handle rank changes
-        /// </summary>
         private void OnRankChanged(Rank rank)
         {
             if (hudController != null)
@@ -258,9 +230,7 @@ namespace VRAimLab.UI
         #endregion
 
         #region Game Over Display
-        /// <summary>
         /// Display final stats on game over screen
-        /// </summary>
         private void DisplayGameOverStats()
         {
             if (GameManager.Instance == null || gameOverPanel == null) return;
@@ -309,9 +279,7 @@ namespace VRAimLab.UI
         #endregion
 
         #region Public Methods
-        /// <summary>
         /// Update HUD elements (manual update if needed)
-        /// </summary>
         public void UpdateHUD()
         {
             if (GameManager.Instance == null || hudController == null) return;
@@ -326,9 +294,7 @@ namespace VRAimLab.UI
             hudController.UpdateTimer(GameManager.Instance.CurrentTime);
         }
 
-        /// <summary>
         /// Toggle pause menu
-        /// </summary>
         public void TogglePause()
         {
             if (GameManager.Instance == null) return;
@@ -343,9 +309,7 @@ namespace VRAimLab.UI
             }
         }
 
-        /// <summary>
         /// Refresh all UI elements
-        /// </summary>
         public void RefreshAllUI()
         {
             if (menuController != null)
@@ -359,9 +323,7 @@ namespace VRAimLab.UI
         #endregion
 
         #region Button Callbacks (for Inspector)
-        /// <summary>
         /// Resume game button callback
-        /// </summary>
         public void OnResumeButtonPressed()
         {
             if (GameManager.Instance != null)
@@ -375,9 +337,7 @@ namespace VRAimLab.UI
             }
         }
 
-        /// <summary>
         /// Return to menu button callback
-        /// </summary>
         public void OnMenuButtonPressed()
         {
             if (GameManager.Instance != null)
@@ -391,9 +351,7 @@ namespace VRAimLab.UI
             }
         }
 
-        /// <summary>
         /// Restart game button callback
-        /// </summary>
         public void OnRestartButtonPressed()
         {
             if (GameManager.Instance != null)

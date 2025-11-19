@@ -5,9 +5,7 @@ using VRAimLab.Core;
 
 namespace VRAimLab.Gameplay
 {
-    /// <summary>
     /// Target types with different behaviors and point values
-    /// </summary>
     public enum TargetType
     {
         Basic,      // Standard target
@@ -17,9 +15,7 @@ namespace VRAimLab.Gameplay
         Combo       // Requires multiple hits
     }
 
-    /// <summary>
     /// Hit zones for precision scoring
-    /// </summary>
     public enum HitZone
     {
         Outer,      // Base points
@@ -27,10 +23,8 @@ namespace VRAimLab.Gameplay
         Bullseye    // 2x points + perfect hit bonus
     }
 
-    /// <summary>
     /// Base Target class - handles hit detection, scoring, lifetime, and effects
     /// Can be extended for specialized target behaviors
-    /// </summary>
     [RequireComponent(typeof(Collider))]
     public class Target : MonoBehaviour
     {
@@ -88,13 +82,12 @@ namespace VRAimLab.Gameplay
             targetCollider = GetComponent<Collider>();
             propBlock = new MaterialPropertyBlock();
 
-            // Preserve original material color if normalColor is still default red
+            // Preservar a cor original do material se não foi customizada no Inspector
             if (targetRenderer != null && targetRenderer.sharedMaterial != null)
             {
-                // Check if normalColor is still the default red (not customized in Inspector)
+                // Se a cor ainda é o vermelho default, usar a cor do material
                 if (normalColor == Color.red)
                 {
-                    // Use the material's original color
                     normalColor = targetRenderer.sharedMaterial.color;
                 }
 
@@ -121,9 +114,7 @@ namespace VRAimLab.Gameplay
         #endregion
 
         #region Initialization
-        /// <summary>
         /// Reset target to initial state (for object pooling)
-        /// </summary>
         public virtual void ResetTarget()
         {
             currentLifetime = lifetime;
@@ -137,9 +128,7 @@ namespace VRAimLab.Gameplay
                 SetTargetColor(normalColor);
         }
 
-        /// <summary>
         /// Initialize target with custom settings
-        /// </summary>
         public virtual void Initialize(TargetType type, int points, float life)
         {
             targetType = type;
@@ -150,25 +139,22 @@ namespace VRAimLab.Gameplay
         #endregion
 
         #region Lifetime Management
-        /// <summary>
         /// Update target lifetime and handle expiration
-        /// </summary>
         protected virtual void UpdateLifetime()
         {
-            // Se hasLifetime está false, alvo nunca expira
+            // Modo training não tem lifetime, alvos ficam para sempre
             if (!hasLifetime) return;
 
             currentLifetime -= Time.deltaTime;
 
+            // Alvo expirou sem ser acertado
             if (currentLifetime <= 0f)
             {
                 OnLifetimeExpired();
             }
         }
 
-        /// <summary>
         /// Called when target expires without being hit
-        /// </summary>
         protected virtual void OnLifetimeExpired()
         {
             isActive = false;
@@ -185,42 +171,38 @@ namespace VRAimLab.Gameplay
         #endregion
 
         #region Hit Detection
-        /// <summary>
         /// Called when bullet hits this target
-        /// </summary>
-        /// <param name="hitPoint">World position of hit</param>
-        /// <param name="hitNormal">Normal of hit surface</param>
         public virtual void OnHit(Vector3 hitPoint, Vector3 hitNormal)
         {
             if (!isActive) return;
 
             currentHits++;
 
-            // Determine hit zone and calculate points
+            // Verificar em que zona acertámos (outer, inner, bullseye)
             HitZone zone = DetermineHitZone(hitPoint);
             int points = CalculatePoints(zone);
             bool isPerfect = (zone == HitZone.Bullseye);
 
-            // Visual feedback
+            // Spawn do efeito visual de impacto
             SpawnHitEffect(hitPoint, hitNormal);
             StartCoroutine(FlashHitColor());
 
-            // Audio feedback
+            // Tocar som de acerto (diferente se for bullseye)
             if (playHitSound && AudioManager.Instance != null)
             {
                 AudioManager.Instance.PlayTargetHitSound(transform.position, isPerfect);
             }
 
-            // Notify game manager
+            // Informar o GameManager para atualizar score
             if (GameManager.Instance != null)
             {
                 GameManager.Instance.OnTargetHit(points, isPerfect);
             }
 
-            // Emit event
+            // Emitir evento para outros sistemas
             OnTargetHit?.Invoke(this);
 
-            // Check if target should be destroyed
+            // Destruir alvo se já levou hits suficientes (combo targets precisam de múltiplos)
             if (currentHits >= hitsRequired)
             {
                 DestroyTarget(true);
@@ -229,45 +211,43 @@ namespace VRAimLab.Gameplay
             Debug.Log($"[Target] Hit! Zone: {zone}, Points: {points}");
         }
 
-        /// <summary>
         /// Determine which hit zone was hit
-        /// </summary>
         protected virtual HitZone DetermineHitZone(Vector3 hitPoint)
         {
+            // Se não usa zonas, retornar sempre outer (pontos base)
             if (!useHitZones) return HitZone.Outer;
 
+            // Calcular distância do ponto de impacto ao centro do alvo
             float distanceFromCenter = Vector3.Distance(hitPoint, transform.position);
 
+            // Verificar em que zona caiu o tiro
             if (distanceFromCenter <= bullseyeRadius)
-                return HitZone.Bullseye;
+                return HitZone.Bullseye;  // Centro (x2 pontos)
             else if (distanceFromCenter <= innerRadius)
-                return HitZone.Inner;
+                return HitZone.Inner;      // Anel interior (x1.5 pontos)
             else
-                return HitZone.Outer;
+                return HitZone.Outer;      // Anel exterior (pontos base)
         }
 
-        /// <summary>
         /// Calculate points based on hit zone
-        /// </summary>
         protected virtual int CalculatePoints(HitZone zone)
         {
+            // Multiplicadores por zona de acerto
             switch (zone)
             {
                 case HitZone.Bullseye:
-                    return Mathf.RoundToInt(basePoints * 2f);
+                    return Mathf.RoundToInt(basePoints * 2f);   // x2 (ex: 200 pts)
                 case HitZone.Inner:
-                    return Mathf.RoundToInt(basePoints * 1.5f);
+                    return Mathf.RoundToInt(basePoints * 1.5f); // x1.5 (ex: 150 pts)
                 case HitZone.Outer:
                 default:
-                    return basePoints;
+                    return basePoints;                           // x1 (ex: 100 pts)
             }
         }
         #endregion
 
         #region Visual Effects
-        /// <summary>
         /// Spawn hit effect particle system
-        /// </summary>
         protected virtual void SpawnHitEffect(Vector3 position, Vector3 normal)
         {
             if (hitEffectPrefab != null)
@@ -277,9 +257,7 @@ namespace VRAimLab.Gameplay
             }
         }
 
-        /// <summary>
         /// Flash target color on hit
-        /// </summary>
         protected virtual IEnumerator FlashHitColor()
         {
             SetTargetColor(hitColor);
@@ -287,9 +265,7 @@ namespace VRAimLab.Gameplay
             SetTargetColor(normalColor);
         }
 
-        /// <summary>
         /// Set target color using MaterialPropertyBlock (efficient)
-        /// </summary>
         protected virtual void SetTargetColor(Color color)
         {
             if (targetRenderer == null) return;
@@ -300,9 +276,7 @@ namespace VRAimLab.Gameplay
             targetRenderer.SetPropertyBlock(propBlock);
         }
 
-        /// <summary>
         /// Spawn destroy effect and return to pool or destroy
-        /// </summary>
         protected virtual void DestroyTarget(bool wasHit)
         {
             isActive = false;
@@ -329,26 +303,20 @@ namespace VRAimLab.Gameplay
         #endregion
 
         #region Public Methods
-        /// <summary>
         /// Force destroy target (e.g., when game ends)
-        /// </summary>
         public virtual void ForceDestroy()
         {
             isActive = false;
             gameObject.SetActive(false);
         }
 
-        /// <summary>
         /// Add bonus time to target lifetime
-        /// </summary>
         public virtual void AddLifetime(float seconds)
         {
             currentLifetime += seconds;
         }
 
-        /// <summary>
         /// Get target info string for debugging
-        /// </summary>
         public virtual string GetTargetInfo()
         {
             return $"Type: {targetType}, Points: {basePoints}, Lifetime: {currentLifetime:F1}s";

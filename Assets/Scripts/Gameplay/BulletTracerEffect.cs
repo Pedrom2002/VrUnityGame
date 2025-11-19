@@ -2,10 +2,8 @@ using UnityEngine;
 
 namespace VRAimLab.Gameplay
 {
-    /// <summary>
     /// Bullet Tracer Effect melhorado com trail renderer
     /// Anexe este script ao prefab de tracer
-    /// </summary>
     public class BulletTracerEffect : MonoBehaviour
     {
         [Header("Tracer Settings")]

@@ -3,11 +3,9 @@ using UnityEngine.InputSystem;
 
 namespace VRAimLab.Gameplay
 {
-    /// <summary>
     /// Desktop mode weapon tester - allows testing VR weapons without VR headset
     /// Attach to the Main Camera
     /// Controls: WASD to move, Mouse to look, Left Click to shoot, E to pickup weapon
-    /// </summary>
     public class DesktopWeaponTester : MonoBehaviour
     {
         [Header("Movement Settings")]

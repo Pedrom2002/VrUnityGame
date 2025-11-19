@@ -3,11 +3,9 @@ using Unity.XR.CoreUtils;
 using UnityEngine.XR;
 using UnityEngine.InputSystem;
 
-/// <summary>
 /// Movimento VR GARANTIDO para Quest 2
 /// Adicione ao XR Origin para movimento funcionar
 /// Usa Input System do Unity para Quest 2
-/// </summary>
 [RequireComponent(typeof(XROrigin))]
 public class Quest2Movement : MonoBehaviour
 {

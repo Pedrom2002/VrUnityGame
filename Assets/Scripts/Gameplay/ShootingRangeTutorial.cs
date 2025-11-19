@@ -6,10 +6,8 @@ using VRAimLab.Core;
 
 namespace VRAimLab.Gameplay
 {
-    /// <summary>
     /// Shooting Range Tutorial - Step-by-step introduction to VR Aim Lab
     /// Guides player through weapon pickup, shooting, and basic mechanics
-    /// </summary>
     public class ShootingRangeTutorial : MonoBehaviour
     {
         #region Tutorial Steps
@@ -115,9 +113,7 @@ namespace VRAimLab.Gameplay
         #endregion
 
         #region Tutorial Control
-        /// <summary>
         /// Start the tutorial
-        /// </summary>
         public void StartTutorial()
         {
             tutorialActive = true;
@@ -133,9 +129,7 @@ namespace VRAimLab.Gameplay
             StartCoroutine(BeginTutorialSequence());
         }
 
-        /// <summary>
         /// Begin tutorial sequence
-        /// </summary>
         private IEnumerator BeginTutorialSequence()
         {
             yield return new WaitForSeconds(1f);
@@ -150,9 +144,7 @@ namespace VRAimLab.Gameplay
             }
         }
 
-        /// <summary>
         /// Move to next tutorial step
-        /// </summary>
         private void NextStep()
         {
             // Play step complete sound
@@ -180,18 +172,14 @@ namespace VRAimLab.Gameplay
             StartCoroutine(ShowNextStepDelayed(stepDelay));
         }
 
-        /// <summary>
         /// Show next step with delay
-        /// </summary>
         private IEnumerator ShowNextStepDelayed(float delay)
         {
             yield return new WaitForSeconds(delay);
             ShowStep(currentStep);
         }
 
-        /// <summary>
         /// Show specific tutorial step
-        /// </summary>
         private void ShowStep(TutorialStep step)
         {
             currentStep = step;
@@ -206,9 +194,7 @@ namespace VRAimLab.Gameplay
             Debug.Log($"[Tutorial] Showing step: {step}");
         }
 
-        /// <summary>
         /// Complete current step and move to next
-        /// </summary>
         private void CompleteStep()
         {
             if (stepCompleted) return;
@@ -232,9 +218,7 @@ namespace VRAimLab.Gameplay
         #endregion
 
         #region Step Management
-        /// <summary>
         /// Update instruction text based on current step
-        /// </summary>
         private void UpdateInstructionText()
         {
             if (instructionText == null) return;
@@ -243,9 +227,7 @@ namespace VRAimLab.Gameplay
             instructionText.text = instruction;
         }
 
-        /// <summary>
         /// Get instruction text for step
-        /// </summary>
         private string GetInstructionForStep(TutorialStep step)
         {
             switch (step)
@@ -285,9 +267,7 @@ namespace VRAimLab.Gameplay
             }
         }
 
-        /// <summary>
         /// Setup elements specific to current step
-        /// </summary>
         private void SetupStepElements()
         {
             switch (currentStep)
@@ -368,18 +348,14 @@ namespace VRAimLab.Gameplay
             }
         }
 
-        /// <summary>
         /// Auto-complete step after delay
-        /// </summary>
         private IEnumerator AutoCompleteAfterDelay(float delay)
         {
             yield return new WaitForSeconds(delay);
             CompleteStep();
         }
 
-        /// <summary>
         /// Check if current step is completed
-        /// </summary>
         private void CheckStepCompletion()
         {
             if (stepCompleted) return;
@@ -442,9 +418,7 @@ namespace VRAimLab.Gameplay
             }
         }
 
-        /// <summary>
         /// Update progress display
-        /// </summary>
         private void UpdateProgressDisplay()
         {
             if (progressText == null) return;
@@ -475,9 +449,7 @@ namespace VRAimLab.Gameplay
         #endregion
 
         #region Target Spawning
-        /// <summary>
         /// Spawn static target
-        /// </summary>
         private void SpawnStaticTarget(Vector3 position)
         {
             if (basicTargetPrefab == null)
@@ -499,9 +471,7 @@ namespace VRAimLab.Gameplay
             Debug.Log($"[Tutorial] Spawned static target at {position}");
         }
 
-        /// <summary>
         /// Spawn precision target (with bullseye)
-        /// </summary>
         private void SpawnPrecisionTarget(Vector3 position)
         {
             GameObject prefab = precisionTargetPrefab != null ? precisionTargetPrefab : basicTargetPrefab;
@@ -522,9 +492,7 @@ namespace VRAimLab.Gameplay
             }
         }
 
-        /// <summary>
         /// Spawn moving target
-        /// </summary>
         private void SpawnMovingTarget(Vector3 position)
         {
             GameObject prefab = movingTargetPrefab != null ? movingTargetPrefab : basicTargetPrefab;
@@ -545,9 +513,7 @@ namespace VRAimLab.Gameplay
             }
         }
 
-        /// <summary>
         /// Clear all active targets
-        /// </summary>
         private void ClearActiveTargets()
         {
             foreach (GameObject target in activeTargets)
@@ -560,9 +526,7 @@ namespace VRAimLab.Gameplay
             activeTargets.Clear();
         }
 
-        /// <summary>
         /// Get target position for index
-        /// </summary>
         private Vector3 GetTargetPosition(int index)
         {
             if (staticTargetPositions != null && staticTargetPositions.Length > 0)
@@ -583,9 +547,7 @@ namespace VRAimLab.Gameplay
             return Vector3.forward * (5f + index * 2f);
         }
 
-        /// <summary>
         /// Get moving target position
-        /// </summary>
         private Vector3 GetMovingTargetPosition(int index)
         {
             if (movingTargetPositions != null && movingTargetPositions.Length > 0)
@@ -599,9 +561,7 @@ namespace VRAimLab.Gameplay
         #endregion
 
         #region Weapon Management
-        /// <summary>
         /// Spawn weapon at spawn point
-        /// </summary>
         private void SpawnWeapon()
         {
             if (weaponPrefab == null)
@@ -624,9 +584,7 @@ namespace VRAimLab.Gameplay
             Debug.Log($"[Tutorial] Spawned weapon at {spawnPos}");
         }
 
-        /// <summary>
         /// Respawn weapon if lost
-        /// </summary>
         private IEnumerator RespawnWeaponAfterDelay()
         {
             yield return new WaitForSeconds(weaponRespawnDelay);
@@ -639,9 +597,7 @@ namespace VRAimLab.Gameplay
         #endregion
 
         #region Event Handlers
-        /// <summary>
         /// Handle target hit event
-        /// </summary>
         private void OnTargetHit(Target target)
         {
             if (!tutorialActive) return;
@@ -682,9 +638,7 @@ namespace VRAimLab.Gameplay
         #endregion
 
         #region Tutorial Completion
-        /// <summary>
         /// Complete tutorial
-        /// </summary>
         private void CompleteTutorial()
         {
             tutorialActive = false;
@@ -711,9 +665,7 @@ namespace VRAimLab.Gameplay
             StartCoroutine(ReturnToMenuAfterDelay(5f));
         }
 
-        /// <summary>
         /// Show completion screen
-        /// </summary>
         private void ShowCompletionScreen()
         {
             if (completionPanel != null)
@@ -742,9 +694,7 @@ namespace VRAimLab.Gameplay
             StopCoroutine("ReturnToMenuAfterDelay");
         }
 
-        /// <summary>
         /// Return to main menu after delay
-        /// </summary>
         private IEnumerator ReturnToMenuAfterDelay(float delay)
         {
             yield return new WaitForSeconds(delay);
@@ -763,18 +713,14 @@ namespace VRAimLab.Gameplay
         #endregion
 
         #region Public Methods
-        /// <summary>
         /// Skip current step (for testing)
-        /// </summary>
         [ContextMenu("Skip Current Step")]
         public void SkipCurrentStep()
         {
             CompleteStep();
         }
 
-        /// <summary>
         /// Reset tutorial
-        /// </summary>
         [ContextMenu("Reset Tutorial")]
         public void ResetTutorial()
         {
@@ -793,25 +739,19 @@ namespace VRAimLab.Gameplay
             StartTutorial();
         }
 
-        /// <summary>
         /// Check if player has completed tutorial before
-        /// </summary>
         public static bool HasCompletedTutorial()
         {
             return PlayerPrefs.GetInt("TutorialCompleted", 0) == 1;
         }
 
-        /// <summary>
         /// Get tutorial progress (0-1)
-        /// </summary>
         public float GetProgress()
         {
             return (float)currentStep / (float)TutorialStep.Completed;
         }
 
-        /// <summary>
         /// Called by UI button - Repeat tutorial
-        /// </summary>
         public void OnRepeatButtonClicked()
         {
             Debug.Log("[Tutorial] Repeat button clicked - restarting tutorial");
@@ -826,9 +766,7 @@ namespace VRAimLab.Gameplay
             ResetTutorial();
         }
 
-        /// <summary>
         /// Called by UI button - Return to menu
-        /// </summary>
         public void OnReturnToMenuButtonClicked()
         {
             Debug.Log("[Tutorial] Return to menu button clicked");

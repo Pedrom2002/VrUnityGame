@@ -5,11 +5,9 @@ using VRAimLab.Core;
 
 namespace VRAimLab.Gameplay
 {
-    /// <summary>
     /// VR Weapon Controller - handles shooting, reloading, haptics for VR
     /// Compatible with XR Interaction Toolkit
     /// Uses raycast for shooting with visual feedback
-    /// </summary>
     [RequireComponent(typeof(UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable))]
     public class VRWeaponController : MonoBehaviour
     {
@@ -160,9 +158,7 @@ namespace VRAimLab.Gameplay
         #endregion
 
         #region XR Interaction Events
-        /// <summary>
         /// Called when weapon is grabbed
-        /// </summary>
         private void OnGrab(SelectEnterEventArgs args)
         {
             isGrabbed = true;
@@ -186,9 +182,7 @@ namespace VRAimLab.Gameplay
             Debug.Log("[VRWeapon] Weapon grabbed");
         }
 
-        /// <summary>
         /// Called when weapon is released
-        /// </summary>
         private void OnRelease(SelectExitEventArgs args)
         {
             isGrabbed = false;
@@ -207,9 +201,7 @@ namespace VRAimLab.Gameplay
             Debug.Log("[VRWeapon] Weapon released");
         }
 
-        /// <summary>
         /// Called when trigger is pressed (XR Activated event)
-        /// </summary>
         private void OnTriggerPressed(ActivateEventArgs args)
         {
             TryShoot();
@@ -217,9 +209,7 @@ namespace VRAimLab.Gameplay
         #endregion
 
         #region Shooting
-        /// <summary>
         /// Attempt to shoot the weapon
-        /// </summary>
         public void TryShoot()
         {
             if (!CanShoot)
@@ -238,9 +228,7 @@ namespace VRAimLab.Gameplay
             Shoot();
         }
 
-        /// <summary>
         /// Shoot the weapon
-        /// </summary>
         private void Shoot()
         {
             // Consume ammo
@@ -323,9 +311,7 @@ namespace VRAimLab.Gameplay
             Debug.Log($"[VRWeapon] Shot fired! Ammo: {currentAmmo}/{maxAmmo}");
         }
 
-        /// <summary>
         /// Get shoot direction (with optional auto-aim)
-        /// </summary>
         private Vector3 GetShootDirection()
         {
             // Always use shootPoint direction (where barrel is pointing)
@@ -361,9 +347,7 @@ namespace VRAimLab.Gameplay
             return direction;
         }
 
-        /// <summary>
         /// Handle hitting a target
-        /// </summary>
         private void OnHitTarget(RaycastHit hit)
         {
             // Spawn impact effect
@@ -391,9 +375,7 @@ namespace VRAimLab.Gameplay
         #endregion
 
         #region Reloading
-        /// <summary>
         /// Check for reload input (grip button or Y/B button)
-        /// </summary>
         private void CheckReloadInput()
         {
             if (!isGrabbed) return;
@@ -447,9 +429,7 @@ namespace VRAimLab.Gameplay
             }
         }
 
-        /// <summary>
         /// Start reload process
-        /// </summary>
         public void StartReload()
         {
             if (isReloading || currentAmmo == maxAmmo) return;
@@ -457,9 +437,7 @@ namespace VRAimLab.Gameplay
             StartCoroutine(ReloadCoroutine());
         }
 
-        /// <summary>
         /// Reload coroutine
-        /// </summary>
         private IEnumerator ReloadCoroutine()
         {
             isReloading = true;
@@ -485,9 +463,7 @@ namespace VRAimLab.Gameplay
         #endregion
 
         #region Visual Feedback
-        /// <summary>
         /// Update laser sight line renderer
-        /// </summary>
         private void UpdateLaserSight()
         {
             if (!laserSight.enabled) return;
@@ -512,9 +488,7 @@ namespace VRAimLab.Gameplay
             laserSight.SetPosition(1, endPosition);
         }
 
-        /// <summary>
         /// Spawn muzzle flash effect
-        /// </summary>
         private void SpawnMuzzleFlash()
         {
             if (muzzleFlashPrefab != null)
@@ -532,9 +506,7 @@ namespace VRAimLab.Gameplay
             }
         }
 
-        /// <summary>
         /// Spawn bullet tracer effect
-        /// </summary>
         private void SpawnBulletTracer(Vector3 start, Vector3 end)
         {
             if (bulletTracerPrefab != null)
@@ -555,9 +527,7 @@ namespace VRAimLab.Gameplay
             }
         }
 
-        /// <summary>
         /// Move tracer from start to end (sistema antigo - fallback)
-        /// </summary>
         private IEnumerator MoveTracer(GameObject tracer, Vector3 start, Vector3 end)
         {
             float distance = Vector3.Distance(start, end);
@@ -575,9 +545,7 @@ namespace VRAimLab.Gameplay
             Destroy(tracer);
         }
 
-        /// <summary>
         /// Spawn bullet impact effect
-        /// </summary>
         private void SpawnImpactEffect(Vector3 position, Vector3 normal)
         {
             if (bulletImpactPrefab != null)
@@ -600,9 +568,7 @@ namespace VRAimLab.Gameplay
         #endregion
 
         #region Recoil
-        /// <summary>
         /// Apply recoil effect to weapon
-        /// </summary>
         private void ApplyRecoil()
         {
             // Simple recoil: push back and up slightly
@@ -616,9 +582,7 @@ namespace VRAimLab.Gameplay
             recoilTimer = 0f;
         }
 
-        /// <summary>
         /// Recover from recoil smoothly
-        /// </summary>
         private void UpdateRecoilRecovery()
         {
             if (!enableRecoil) return;
@@ -629,9 +593,7 @@ namespace VRAimLab.Gameplay
         #endregion
 
         #region Haptic Feedback
-        /// <summary>
         /// Send haptic impulse to controller
-        /// </summary>
         private void SendHapticFeedback(float intensity, float duration)
         {
             if (controller != null)
@@ -642,9 +604,7 @@ namespace VRAimLab.Gameplay
         #endregion
 
         #region Audio
-        /// <summary>
         /// Play shoot sound
-        /// </summary>
         private void PlayShootSound()
         {
             if (AudioManager.Instance != null)
@@ -653,9 +613,7 @@ namespace VRAimLab.Gameplay
             }
         }
 
-        /// <summary>
         /// Play reload sound
-        /// </summary>
         private void PlayReloadSound()
         {
             if (AudioManager.Instance != null)
@@ -664,9 +622,7 @@ namespace VRAimLab.Gameplay
             }
         }
 
-        /// <summary>
         /// Play empty gun sound
-        /// </summary>
         private void PlayEmptySound()
         {
             if (AudioManager.Instance != null)
@@ -677,17 +633,13 @@ namespace VRAimLab.Gameplay
         #endregion
 
         #region Public Methods
-        /// <summary>
         /// Add ammo to weapon
-        /// </summary>
         public void AddAmmo(int amount)
         {
             currentAmmo = Mathf.Min(currentAmmo + amount, maxAmmo);
         }
 
-        /// <summary>
         /// Set laser sight visibility
-        /// </summary>
         public void SetLaserSightEnabled(bool enabled)
         {
             showLaserSight = enabled;
@@ -697,9 +649,7 @@ namespace VRAimLab.Gameplay
             }
         }
 
-        /// <summary>
         /// Get weapon info string
-        /// </summary>
         public string GetWeaponInfo()
         {
             return $"Ammo: {currentAmmo}/{maxAmmo}, Fire Rate: {fireRate:F2}s, Range: {range}m";

@@ -3,11 +3,10 @@ using VRAimLab.Gameplay;
 
 namespace VRAimLab.UI
 {
-    /// <summary>
     /// Botão para repetir o tutorial - VR READY
     /// Setup: Adicione este script + VRClickableButton ao botão
     /// O botão pode ser ativado atirando nele ou clicando!
-    /// </summary>
+    /// 
     [RequireComponent(typeof(VRClickableButton))]
     public class RepeatTutorialButton : MonoBehaviour
     {
@@ -28,9 +27,7 @@ namespace VRAimLab.UI
             Debug.Log("[RepeatButton] Botão VR configurado! Pode atirar no botão para clicar.");
         }
 
-        /// <summary>
         /// Chamado automaticamente quando o botão é clicado
-        /// </summary>
         public void OnClick()
         {
             Debug.Log("[RepeatButton] Botão clicado - procurando tutorial...");
